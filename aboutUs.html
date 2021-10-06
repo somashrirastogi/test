@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogun - About Us</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+    <div id="loadOverlay" style="background-color:white; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+</head>
+
+<body>
+    <header>
+        <div id="header-wrapper">
+            <div class="Navbar__StyledWrapper">
+                <div class="Navbar__StyledWrapper2">
+                    <div class="ResponsivePaddingContainer Navbar__StyledPaddingContainer">
+                        <nav class="Navbar__NavbarContainer navbar">
+                            <div class="Navbar__LogoContainer"><a aria-current="page" class="" href="./index.html"><img
+                                        src="./assets/Shogun_logo.png"
+                                        alt="Shogun logo" class="Navbar__StyledLogo" ></a></div>
+                            <div style="margin-bottom: 9px">
+                                <ul class="Navbar__ListNavigation">
+                                    <li class="nav-item dropdown" style="cursor:pointer">
+                                        <a class="nav-link" >Products</a>
+                                        <ul style="padding-top: 50px;" aria-labelledby="dropdownUser1" class=" dropdown-menu Navbar__DropdownMenu">
+                                            <li class="DropdownMenu__Container">
+                                                <div class="DropdownMenu__ContentContainer">
+                                                    <div class="DropdownMenu__Column">
+                                                        <ul class="DropdownMenu__MenuList">
+                                                            <li><a href="./homecare.html">
+                                                                    <div><img
+                                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDUuMzQzOSA0OS45MjM0QzQ0LjUwMjkgNTMuMDMyNSA0MS44NDMyIDUzLjgwNzkgMzkuMTgzNSA1MS41ODkzTDMwLjA1NDMgNDMuOTYzOUMyOS41MTUyIDQ0LjQwMTkgMjguOTk3NiA0NC44NjE0IDI4LjQ5NDQgNDUuMzQyNUMyNi4wMDU5IDQ3Ljc0MSAyNC4wMDY2IDUwLjU5ODggMjIuNjA3MiA1My43NTc3TDE3LjQ5NjMgNjUuMjQ2QzI1LjMyMTYgNjkuNzU2NCAzNC41OTA1IDcxLjA2NzQgNDMuMzYxNyA2OC45MDQ1QzUyLjEzMyA2Ni43NDE2IDU5LjcyNjMgNjEuMjcyNiA2NC41NTExIDUzLjY0MjhDNTcuOTMwMyA1NC4xNTI0IDUxLjI5NDUgNTIuODY3NCA0NS4zNDM5IDQ5LjkyMzRaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTU4LjI4MzEgNDAuMDQ0MUM1NC44ODg0IDM4LjUzMzggNTEuMjE2OCAzNy43NDQgNDcuNTAwNiAzNy43MjQ5TDQ1LjQ4NzkgNDkuMjg1QzQ1LjQ0NDggNDkuNDkzMiA0NS40MDE2IDQ5LjY5NDMgNDUuMzUxMyA0OS44ODgyQzUxLjMwNjcgNTIuODQxMSA1Ny45NTEzIDU0LjEyODggNjQuNTgwMSA1My42MTQ3QzY1Ljg3NTUgNTEuNTc5NCA2Ni45NTI1IDQ5LjQxMzMgNjcuNzkzMyA0Ny4xNTI1QzY1LjE5NTcgNDQuMTAyMSA2MS45NDU3IDQxLjY3MjkgNTguMjgzMSA0MC4wNDQxWiIgZmlsbD0iI0ZGQjE2NyIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02My45NzYxIDE1LjM1MTFDNjEuNDAwMSAxMS41NTE5IDU4LjEwMDIgOC4yOTY3NCA1NC4yNjQ3IDUuNzcxNUM1MC40MjkyIDMuMjQ2MjYgNDYuMTMzMyAxLjUwMDQgNDEuNjIyMiAwLjYzMzYyQzM3LjExMTIgLTAuMjMzMTYxIDMyLjQ3MzUgLTAuMjAzODg5IDI3Ljk3MzggMC43MTk3NjRDMjMuNDc0MSAxLjY0MzQyIDE5LjIwMDYgMy40NDMzNiAxNS4zOTczIDYuMDE2ODFDMTQuNTkyMyA2LjU1NTMzIDEzLjgzMDMgNy4xMjk3NSAxMy4wOTcxIDcuNzI1N0wyMy45MzcxIDI1LjU2MTRMNDUuMDcwOCAxNy44MjgzQzQ4LjU0MjggMTYuNTY0NiA1MC44MjE1IDE4LjQ5NiA1MC4yMjQ4IDIyLjEzNjRMNDguMTYxOCAzNC4xNTYxQzU2LjAxNDEgMzQuMzU0NiA2My40ODQ4IDM3LjU4MTMgNjkuMDA3OSA0My4xNjAxQzcwLjE1ODggMzguNDMwNyA3MC4zMDU2IDMzLjUxMzEgNjkuNDM5IDI4LjcyMzZDNjguNTcyNCAyMy45MzQxIDY2LjcxMTUgMTkuMzc4OSA2My45NzYxIDE1LjM1MTFaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIGQ9Ik0zMS43ODY5IDM4LjM4NDhDMjYuMjczNiA0MS42MDIzIDIxLjkxMyA0Ni40NzA0IDE5LjMyMjMgNTIuMzAwMUwxNC40NDE1IDYzLjI1NzFDMTAuMDg4NSA2MC4xMDM4IDYuNTIyMTQgNTUuOTkwMyA0LjAxOTYgNTEuMjM2M0MxLjUxNzA1IDQ2LjQ4MjMgMC4xNDU3MyA0MS4yMTU5IDAuMDEyMjEwNiAzNS44NDY0Qy0wLjEyMTMwOSAzMC40NzY5IDAuOTg2NTc0IDI1LjE0OSAzLjI0OTc1IDIwLjI3NjhDNS41MTI5MiAxNS40MDQ2IDguODcwNDIgMTEuMTE5MyAxMy4wNjEzIDcuNzUzOThMMzAuMzg1MiAzNi4yNTIzQzMwLjgzMDkgMzYuOTc1MSAzMS4yOTgxIDM3LjY4NTkgMzEuNzg2OSAzOC4zODQ4WiIgZmlsbD0iI0ZGQjE2NyIvPgo8L3N2Zz4K"
+                                                                            alt=""></div>
+                                                                    <div >
+                                                                        <p>Home Care AI</p>
+                                                                    </div>
+                                                                </a></li>
+                                                            <li><a href="./homecare.html">
+                                                                    <div><img
+                                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02NS41NTU1IDE3Ljk1NDVDNjEuNzgyMiAxMS4xOTA5IDU1Ljg2NzcgNS44NjkxMiA0OC43Mzk2IDIuODIzODdDNDEuNjExNSAtMC4yMjEzNzcgMzMuNjczIC0wLjgxNzkwNyAyNi4xNjg5IDEuMTI3ODNMMzAuODcyIDkuMDc3OTdDMzMuMzg5NCAxMy4zMzM0IDM0LjgyODUgMTguMTM4MiAzNS4wNjQ1IDIzLjA3NTFDNDMuNDc4MyAyMS4yNTgxIDUxLjAzNjMgMjMuNDA1NCA1Mi44OTE3IDI4LjU1NDdDNTUuMDQ5MSAzNC40OTQgNDguNzQyMyA0Mi4xOTk5IDM4Ljg2ODcgNDUuNzE5QzM3LjgyNzQgNDYuMDk3IDM2Ljc2NjMgNDYuNDE4MiAzNS42OTAxIDQ2LjY4MTNDMzkuNDYyNCA0OS45MzgxIDQzLjg1NzYgNTIuMzk1OSA0OC42MDkzIDUzLjkwNTdDNTMuMzYxMSA1NS40MTU0IDU4LjM3MDMgNTUuOTQ1OCA2My4zMzM0IDU1LjQ2NDVMNjMuNDEyNSA1NS4zNTY4QzY3LjI4ODYgNDkuOTY4OSA2OS41NDg2IDQzLjU5MDIgNjkuOTI4MSAzNi45NjY4QzcwLjMwNzYgMzAuMzQzMyA2OC43OTEgMjMuNzQ4OCA2NS41NTU1IDE3Ljk1NDVaIiBmaWxsPSIjOThCMUI3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTMxLjEzODQgMjQuMjAyNUwzMS40OTc5IDI0LjA4MDRDMzEuNDIyOCAxOS40MzkyIDMwLjEzOSAxNC44OTc0IDI3Ljc3MjggMTAuOTAyTDIyLjY1OTggMi4yODM5N0MxOC43MzYyIDMuNzYzNzIgMTUuMTA5NiA1LjkzMzM0IDExLjk1MiA4LjY5MDA1TDIzLjA2OTcgMjguNTYxOEMyNS41MTM5IDI2LjY5NTQgMjguMjM2NyAyNS4yMjQzIDMxLjEzODQgMjQuMjAyNVoiIGZpbGw9IiM5OEIxQjciLz4KPHBhdGggZD0iTTE3LjExNTEgNDEuMzY3M0MxNS42NzY5IDM3LjI4ODEgMTguMTU3OSAzMi4zODMgMjMuMDY5NSAyOC41NjI0TDExLjk0NDYgOC42NTQ3MUM1Ljk3Njc0IDEzLjg3NjUgMS45NjIxOSAyMC45NjgxIDAuNTU4OTI5IDI4Ljc2N0MtMC44NDQzMjggMzYuNTY2IDAuNDQ2OTU5IDQ0LjYwOTcgNC4yMjExNCA1MS41Nzk3QzkuMTQ3MjggNTEuNjU0NyAxMy45OTgyIDUwLjM2NzIgMTguMjM3IDQ3Ljg1OTZDMTkuMjg2NyA0Ny4yMzg0IDIwLjI5MzMgNDYuNTQ3NCAyMS4yNTAxIDQ1Ljc5MTNDMTkuMzU1MyA0NC45IDE3Ljg3NTIgNDMuMzE2NSAxNy4xMTUxIDQxLjM2NzNaIiBmaWxsPSIjOThCMUI3Ii8+CjxwYXRoIGQ9Ik0zMC4zNDc1IDQwLjkzNTlDMjcuNzU5MiA0NS4wMjY4IDI0LjIyODIgNDguNDM5NyAyMC4wNDk2IDUwLjg4OTdDMTYuMzI0NSA1My4wOTMgMTIuMTcxMiA1NC40NzY0IDcuODY3NTEgNTQuOTQ3NEM3LjM3ODUgNTQuOTk3NiA2Ljg4OTUgNTUuMDMzNSA2LjQyOTI1IDU1LjA2MjNDOS42NDA3OSA1OS42MDI0IDEzLjg5MDMgNjMuMzEyMiAxOC44MjUxIDY1Ljg4MzZDMjMuNzU5OSA2OC40NTUgMjkuMjM3NiA2OS44MTQgMzQuODAzNyA2OS44NDc3QzQwLjM2OTcgNjkuODgxNCA0NS44NjM1IDY4LjU4ODkgNTAuODI5MiA2Ni4wNzc0QzU1Ljc5NDggNjMuNTY1OSA2MC4wODkxIDU5LjkwNzkgNjMuMzU1NSA1NS40MDdDNTcuMDcxOSA1Ni4wMzM3IDUwLjczMjcgNTUuMDMxMSA0NC45NTA0IDUyLjQ5NjFDMzkuMTY4MiA0OS45NjExIDM0LjEzODUgNDUuOTc5NCAzMC4zNDc1IDQwLjkzNTlaIiBmaWxsPSIjOThCMUI3Ii8+Cjwvc3ZnPgo="
+                                                                            alt=""></div>
+                                                                    <div>
+                                                                        <p>Agrochemical AI</p>
+                                                                    </div>
+                                                                </a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="DropdownMenu__ContentFooter-tm84eq-5 hGsRqE">
+                                                    <ul class="DropdownMenu__MenuList-tm84eq-10 fiMFGb">
+                                                        <li><a href="#"   target="_blank">
+                                                                <div><img
+                                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0wIDM1QzAgMTUuNjcgMTUuNjcgMCAzNSAwQzU0LjMzIDAgNzAgMTUuNjcgNzAgMzVDNzAgNTQuMzMgNTQuMzMgNzAgMzUgNzBDMTUuNjcgNzAgMCA1NC4zMyAwIDM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTY5Ljc1NTIgMzAuNzk0OEM2OS41MDU5IDI4LjY5NzMgNjkuMDYyOSAyNi42Mjc0IDY4LjQzMiAyNC42MTE0QzYzLjUxMDkgMzAuNTAzMSA1Ni44NTA5IDM0LjY5MDggNDkuNDAzOCAzNi41NzYxTDUwLjY4MzkgNDEuMjI5OEM1MS43NzcgNDUuMDkzNiA0OS4zMzkxIDQ4LjI4MjIgNDUuMzA0OCA0OC4zMTgxSDQzLjY3MjRDNDUuODAyNyA1MS45NDMzIDQ4Ljc1MzEgNTUuMDIwMSA1Mi4yODc1IDU3LjMwMjVDNTQuMzYxNiA1OC42NDgxIDU2LjYwOTEgNTkuNzA2MyA1OC45NjgyIDYwLjQ0OEM2Mi45NzI0IDU2LjY5OSA2Ni4wMzU2IDUyLjA2MDYgNjcuOTA5OCA0Ni45MDg2QzY5Ljc4MzkgNDEuNzU2NyA3MC40MTYxIDM2LjIzNjMgNjkuNzU1MiAzMC43OTQ4WiIgZmlsbD0iIzZFQ0ZERCIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik01OC41NDQxIDkuMDk4ODhDNTMuNTE5NCAxMC43NTAxIDQ5LjA5NzYgMTMuODUxNSA0NS44MzcxIDE4LjAxMTRDNDUuMzMzNyAxOC42NTA1IDQ0Ljg1MTkgMTkuMzI1NiA0NC4zOTg4IDIwLjAxNTFDNDMuNzk2MiAyMC45Mzk2IDQzLjI0ODcgMjEuODk4OCA0Mi43NTkyIDIyLjg4NzdDNDQuODczIDI0LjEyIDQ2LjQ0ODIgMjYuMDk3OSA0Ny4xNzQ3IDI4LjQzMkw0OS40MDQgMzYuNTU0NUM1Ni44NDczIDM0LjY3MjggNjMuNTA2MyAzMC40OTMzIDY4LjQzMjEgMjQuNjExM0M2OS4wNTcgMjYuNjI5IDY5LjQ5OTggMjguNjk4NCA2OS43NTUzIDMwLjc5NDhDNjguNzYzIDIyLjQ0ODUgNjQuNzgwOSAxNC43NDI0IDU4LjU0NDEgOS4wOTg4OFoiIGZpbGw9IiM2RUNGREQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNMTkuMzA4NyAyOC42ODM2QzE4LjI1MTYgMjQuODE5OCAyMC42NjA2IDIxLjYzMTIgMjQuNjczNCAyMS42MDI0TDM3Ljk0ODUgMjEuNDg3NUMzOC40MzA3IDIxLjQ4MTggMzguOTEyNCAyMS41MjI3IDM5LjM4NjggMjEuNjA5NkM0Mi42Mjk2IDE0Ljc2NjQgNDguMzAwNyA5LjM2OTA2IDU1LjMwMTEgNi40NjM0MUM0Ny43NDU0IDEuMDk1NDEgMzguMzY1MiAtMS4wNTgyNCAyOS4yMjA2IDAuNDc1NDg3QzIwLjA3NjEgMi4wMDkyMSAxMS45MTUgNy4xMDQ5IDYuNTI5NzUgMTQuNjQzNEM5LjI1OCAyMS40NTI1IDEzLjk3MDMgMjcuMjg2OSAyMC4wNTY2IDMxLjM5MTFMMTkuMzA4NyAyOC42ODM2WiIgZmlsbD0iIzZFQ0ZERCIvPgo8cGF0aCBkPSJNNTAuMzM4OSA2MC4zMjY0QzQ2Ljk1ODUgNTguMTQ4NyA0NC4wNDQgNTUuMzIzMiA0MS43NjQxIDUyLjAxMzNDMzkuNDg0MyA0OC43MDM0IDM3Ljg4NDIgNDQuOTc0OSAzNy4wNTY2IDQxLjA0MzVDMzYuODA4NyAzOS44NTggMzYuNjMxIDM4LjY1OSAzNi41MjQ1IDM3LjQ1MjdDMjkuOTI3NiAzNi43MDk3IDIzLjY1NTIgMzQuMTk3IDE4LjM3MjkgMzAuMTgxMkMxMy4wOTA2IDI2LjE2NTMgOC45OTU2IDIwLjc5NjIgNi41MjI0MiAxNC42NDM2QzEuNjc3MyAyMS40MDgyIC0wLjU5MzE1NSAyOS42NzY3IDAuMTE5MDcgMzcuOTYzMkMwLjgzMTI5NCA0Ni4yNDk3IDQuNDc5NSA1NC4wMTA5IDEwLjQwODEgNTkuODUxOUMxNi4zMzY2IDY1LjY5MyAyNC4xNTY4IDY5LjIzMDkgMzIuNDYzMyA2OS44Mjk5QzQwLjc2OTcgNzAuNDI5IDQ5LjAxNzggNjguMDQ5OCA1NS43MjUyIDYzLjEyMDFDNTMuODQyOCA2Mi4zNjY1IDUyLjAzODggNjEuNDMwOSA1MC4zMzg5IDYwLjMyNjRaIiBmaWxsPSIjNkVDRkREIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDAiPgo8cGF0aCBkPSJNMCAzNUMwIDE1LjY3IDE1LjY3IDAgMzUgMEM1NC4zMyAwIDcwIDE1LjY3IDcwIDM1QzcwIDU0LjMzIDU0LjMzIDcwIDM1IDcwQzE1LjY3IDcwIDAgNTQuMzMgMCAzNVoiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
+                                                                        alt=""></div>
+                                                                <div>
+                                                                    <p>Insights</p>
+                                                                    <p><span>Our healthcare thought leadership hub</span></p>
+                                                                </div>
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                    <li class="nav-item dropdown"><a class="nav-link" href="./infra.html">Infra</a>
+                                    </li>
+                                    <li class="nav-item dropdown"><a href="./aboutus.html" class="nav-link ">About Us</a>
+                                    </li>
+                                    <li class="nav-item dropdown"><a href="./getintouch.html" class="nav-link">GET IN TOUCH</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="Navbar__MobileNavigation d-none">
+                                <button class="navbar-toggler" style="border: none;box-shadow: none;" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <div class="toggle-menu__lines">
+                                        <span class="toggle-menu__line"></span>
+                                        <span class="toggle-menu__line" style="margin-top: 8px"></span>
+                                        <span class="toggle-menu__line" style="margin-top: 17px"></span>
+                                    </div>
+                                    <div class="d-none times" >&times;</div>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="navbarNavDropdown" class="collapse navbar-collapse MobileMenu__Container" style="position:unset">
+                <ul class="MobileMenu__MenuList">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" style="position: relative !important;">
+                                <li>
+                                    <a class="dropdown-item" style="display: flex;" href="./homecare.html">
+                                        <div style="display: flex;">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDUuMzQzOSA0OS45MjM0QzQ0LjUwMjkgNTMuMDMyNSA0MS44NDMyIDUzLjgwNzkgMzkuMTgzNSA1MS41ODkzTDMwLjA1NDMgNDMuOTYzOUMyOS41MTUyIDQ0LjQwMTkgMjguOTk3NiA0NC44NjE0IDI4LjQ5NDQgNDUuMzQyNUMyNi4wMDU5IDQ3Ljc0MSAyNC4wMDY2IDUwLjU5ODggMjIuNjA3MiA1My43NTc3TDE3LjQ5NjMgNjUuMjQ2QzI1LjMyMTYgNjkuNzU2NCAzNC41OTA1IDcxLjA2NzQgNDMuMzYxNyA2OC45MDQ1QzUyLjEzMyA2Ni43NDE2IDU5LjcyNjMgNjEuMjcyNiA2NC41NTExIDUzLjY0MjhDNTcuOTMwMyA1NC4xNTI0IDUxLjI5NDUgNTIuODY3NCA0NS4zNDM5IDQ5LjkyMzRaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTU4LjI4MzEgNDAuMDQ0MUM1NC44ODg0IDM4LjUzMzggNTEuMjE2OCAzNy43NDQgNDcuNTAwNiAzNy43MjQ5TDQ1LjQ4NzkgNDkuMjg1QzQ1LjQ0NDggNDkuNDkzMiA0NS40MDE2IDQ5LjY5NDMgNDUuMzUxMyA0OS44ODgyQzUxLjMwNjcgNTIuODQxMSA1Ny45NTEzIDU0LjEyODggNjQuNTgwMSA1My42MTQ3QzY1Ljg3NTUgNTEuNTc5NCA2Ni45NTI1IDQ5LjQxMzMgNjcuNzkzMyA0Ny4xNTI1QzY1LjE5NTcgNDQuMTAyMSA2MS45NDU3IDQxLjY3MjkgNTguMjgzMSA0MC4wNDQxWiIgZmlsbD0iI0ZGQjE2NyIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02My45NzYxIDE1LjM1MTFDNjEuNDAwMSAxMS41NTE5IDU4LjEwMDIgOC4yOTY3NCA1NC4yNjQ3IDUuNzcxNUM1MC40MjkyIDMuMjQ2MjYgNDYuMTMzMyAxLjUwMDQgNDEuNjIyMiAwLjYzMzYyQzM3LjExMTIgLTAuMjMzMTYxIDMyLjQ3MzUgLTAuMjAzODg5IDI3Ljk3MzggMC43MTk3NjRDMjMuNDc0MSAxLjY0MzQyIDE5LjIwMDYgMy40NDMzNiAxNS4zOTczIDYuMDE2ODFDMTQuNTkyMyA2LjU1NTMzIDEzLjgzMDMgNy4xMjk3NSAxMy4wOTcxIDcuNzI1N0wyMy45MzcxIDI1LjU2MTRMNDUuMDcwOCAxNy44MjgzQzQ4LjU0MjggMTYuNTY0NiA1MC44MjE1IDE4LjQ5NiA1MC4yMjQ4IDIyLjEzNjRMNDguMTYxOCAzNC4xNTYxQzU2LjAxNDEgMzQuMzU0NiA2My40ODQ4IDM3LjU4MTMgNjkuMDA3OSA0My4xNjAxQzcwLjE1ODggMzguNDMwNyA3MC4zMDU2IDMzLjUxMzEgNjkuNDM5IDI4LjcyMzZDNjguNTcyNCAyMy45MzQxIDY2LjcxMTUgMTkuMzc4OSA2My45NzYxIDE1LjM1MTFaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIGQ9Ik0zMS43ODY5IDM4LjM4NDhDMjYuMjczNiA0MS42MDIzIDIxLjkxMyA0Ni40NzA0IDE5LjMyMjMgNTIuMzAwMUwxNC40NDE1IDYzLjI1NzFDMTAuMDg4NSA2MC4xMDM4IDYuNTIyMTQgNTUuOTkwMyA0LjAxOTYgNTEuMjM2M0MxLjUxNzA1IDQ2LjQ4MjMgMC4xNDU3MyA0MS4yMTU5IDAuMDEyMjEwNiAzNS44NDY0Qy0wLjEyMTMwOSAzMC40NzY5IDAuOTg2NTc0IDI1LjE0OSAzLjI0OTc1IDIwLjI3NjhDNS41MTI5MiAxNS40MDQ2IDguODcwNDIgMTEuMTE5MyAxMy4wNjEzIDcuNzUzOThMMzAuMzg1MiAzNi4yNTIzQzMwLjgzMDkgMzYuOTc1MSAzMS4yOTgxIDM3LjY4NTkgMzEuNzg2OSAzOC4zODQ4WiIgZmlsbD0iI0ZGQjE2NyIvPgo8L3N2Zz4K" alt="">
+                                        </div>
+                                        Home Care AI</a>
+                                </li>
+                                <li><a style="display: flex;" class="dropdown-item" href="#">
+                                    <div >
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0wIDM1QzAgMTUuNjcgMTUuNjcgMCAzNSAwQzU0LjMzIDAgNzAgMTUuNjcgNzAgMzVDNzAgNTQuMzMgNTQuMzMgNzAgMzUgNzBDMTUuNjcgNzAgMCA1NC4zMyAwIDM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIxLjg4MzMgMjguMDA5NEMyMi4xNTkxIDI3LjQ4MTUgMjIuNDY3NyAyNi45NzE0IDIyLjgwNzIgMjYuNDgyMUwxNC45ODkyIDYuMjkzMzJDMTQuMjE0NSA2LjgxMTg5IDEzLjUwMzggNy4zNTg4OCAxMi43OTMgNy45NDg0OUM4LjExMTkyIDExLjc4NCA0LjUwNzM2IDE2Ljc2ODYgMi4zMzIxMiAyMi40MTQ0QzAuMTU2ODcyIDI4LjA2MDIgLTAuNTE0NTI0IDM0LjE3MzcgMC4zODM2MzggNDAuMTU2N0wxMC41NjEzIDQwLjU4M0MxNC4wMzQ5IDQwLjcyODUgMTcuNTAzNiA0MC4xOTc3IDIwLjc3NDUgMzkuMDIwMUMxOS43MDM5IDM1LjM0NDggMjAuMTAxMyAzMS4zOTc3IDIxLjg4MzMgMjguMDA5NFoiIGZpbGw9IiM2OUNEQTQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNMzcuODQ2NCAyMC4yNjY5QzM4LjMxMTcgMTguNDU4MyAzOC41ODU2IDE2LjYwNTkgMzguNjYzNyAxNC43NDAyQzM4Ljg4ODkgOS41NzYxIDM3LjYxNTMgNC40NTcxMSAzNC45OTYzIC0zLjkyNjQ4ZS0wNUMyNy44MzkzIC0wLjAxNjY4MTYgMjAuODUwOSAyLjE3MTA0IDE0Ljk4MjEgNi4yNjU0NFY2LjMwODA2TDIyLjgwMDIgMjYuNDg5N0MyNC40MzU5IDI0LjEwNzYgMjYuNzI4NCAyMi4yNTE1IDI5LjM5OTQgMjEuMTQ2OEMzMi4wNzA0IDIwLjA0MjEgMzUuMDA0OSAxOS43MzY0IDM3Ljg0NjQgMjAuMjY2OVoiIGZpbGw9IiM2OUNEQTQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNNjIuMDA0MyAxMi43ODcxQzU2LjMwNTkgNS44MzMgNDguMTM5NiAxLjM0ODUxIDM5LjIxMTIgMC4yNzAzMTdDNDIuNDEyNSA2LjgyOTQ2IDQzLjE0NDIgMTQuMzIxNCA0MS4yNzIzIDIxLjM3NTVDNDEuNTEzOSAyMS40ODIgNDEuNzYyNyAyMS41ODE1IDQxLjk4MyAyMS43MDkzQzQ0LjgxMzggMjMuMjE1OCA0Ny4wODM5IDI1LjU5MzUgNDguNDU2OSAyOC40OTA0QzQ5LjgyOTkgMzEuMzg3MiA1MC4yMzI5IDM0LjY0OSA0OS42MDYxIDM3Ljc5MjdDNDguOTc5MyA0MC45MzYzIDQ3LjM1NiA0My43OTQ1IDQ0Ljk3NjggNDUuOTQzOUM0Mi41OTc2IDQ4LjA5MzQgMzkuNTg5IDQ5LjQxOTcgMzYuMzk2NyA0OS43MjY0QzQzLjE0MDYgNTUuNTQ1OCA1MS43NjU4IDU4LjcyNTYgNjAuNjc1MyA1OC42NzcxQzY2LjM5NzkgNTIuNDc0OSA2OS42ODQyIDQ0LjQxNCA2OS45Mjg1IDM1Ljk4MDZDNzAuMTcyNyAyNy41NDcxIDY3LjM1ODQgMTkuMzA5NyA2Mi4wMDQzIDEyLjc4NzFaIiBmaWxsPSIjNjlDREE0Ii8+CjxwYXRoIGQ9Ik0xMC41NDcxIDQ0LjI0MThDMTYuNzkzOCA0NC41MDc4IDIyLjk3MDggNDIuODQzNCAyOC4yMzcyIDM5LjQ3NTJDMzEuNDAxOCA0NS4zNDI5IDM2LjEwNjUgNTAuMjM3NiA0MS44NDU1IDUzLjYzMzJDNDcuNTg0NiA1Ny4wMjg4IDU0LjE0MSA1OC43OTcgNjAuODEwMSA1OC43NDc2QzU5LjcyNSA1OS45MzA4IDU4LjU1NjQgNjEuMDM0NyA1Ny4zMTMzIDYyLjA1MDhDNTIuNzc2NCA2NS43NzU2IDQ3LjM3NDUgNjguMjk5MSA0MS42MDUzIDY5LjM4ODhDMzUuODM2MiA3MC40Nzg2IDI5Ljg4NTUgNzAuMDk5NSAyNC4zMDE1IDY4LjI4NjVDMTguNzE3NSA2Ni40NzM1IDEzLjY3OTggNjMuMjg1IDkuNjUyNzIgNTkuMDE0N0M1LjYyNTY0IDU0Ljc0NDQgMi43Mzg2NyA0OS41Mjk3IDEuMjU3ODQgNDMuODUxMUwxMC41NDcxIDQ0LjI0MThaIiBmaWxsPSIjNjlDREE0Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDAiPgo8cGF0aCBkPSJNMCAzNUMwIDE1LjY3IDE1LjY3IDAgMzUgMEM1NC4zMyAwIDcwIDE1LjY3IDcwIDM1QzcwIDU0LjMzIDU0LjMzIDcwIDM1IDcwQzE1LjY3IDcwIDAgNTQuMzMgMCAzNVoiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="">
+                                    </div>Agrochemical AI</a></li>
+                              </ul>
+                            </li>
+                        <li><a href="./infra.html" class="nav-link" id="dropdownUser2">Infra</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="./aboutus.html">About Us</a>
+                        </li>
+                        <li><a class="nav-link" href="./getintouch.html" >GET IN TOUCH</a>
+                        </li>
+                </ul>
+            </div>
+        </div>        
+    </header>
+    <div class="HeroBannergroundImage"
+        style="background-position: 50% 0%; background-repeat: no-repeat; background-size: 150%; position: relative; opacity: 0.99;">
+        <div class="ResponsivePaddingContainer">
+            <section class="HeroBanner__Container">
+                <div class="HeroBanner__StyledCircleImage"
+                    style="background-position: center center; background-repeat: no-repeat; background-size: contain; position: relative; opacity: 0.99;">
+                    <h1><span>Unmatched Value</span>
+                        <span>Through Accelerated</span>
+                        <span>Innovation</span>
+            </section>
+        </div>
+    </div>
+    <section class="HeroImageWithContentContainer" >
+        <div  class="ResponsivePaddingContainer">
+            <div>
+                <h2 class="h21">We started our journey in 1984 with a vision to give India a great night’s sleep.</h2>
+                <div data-aos="fade-left" data-aos-duration="1200">
+                    <span>
+                        <p style="margin-bottom: 1rem;">We built India’s first indigenous solution to
+                            mosquitoes: Good Knight.</p>
+                    </span><span>
+                        <h4 class="h41" style="color: rgb(60, 58, 58)">But that was just the beginning...</h4>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="HeroImageWithContentContainer">
+            <div>
+                <div style="position:relative;overflow:hidden;max-width:1000px;max-height:1028px">
+                    <img src="./assets/about_us/company-founders.png"
+                        style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="MissionBgColor">
+        <div class="ResponsivePaddingContainer jHyZqF">
+            <div class="MissionColumn">
+                <h2 class="h21">Since the very start, we have been
+                    working with the leading brands in
+                    the sector.</h2>
+                <p>Our missions to protect every individual
+                    from devastation mosquito borne
+                    diseases.</p>
+            </div>
+            <section class="MissionContentWrapper">
+                <div id="makers" style="transform:translate3d(0px, 0px, 0px) scale(0.604);" class="MissionContentColumn">
+                    <p>Now a part of the Safex Chemicals
+                        family, we are just getting started.
+                        Serving India for the past 29 years,
+                        Safex Chemicals India Limited is an
+                        agro-based company that aspires to
+                        meet every farmer’s dream - high
+                        productivity and healthy crops.
+                        Our research backed science and
+                        common vision help us work
+                        passionately towards betterment of our
+                        customer's lives.</p>
+                    <p id="circleSection">Visit <a href="https://safexchemicals.com/" target="_blank">www.safexchemicals.com</a> to know
+                        more.</p>
+                </div>
+            </section>
+        </div><img class="bgdots" src="https://truepill.com/static/backgroundDots.8814ff39.svg" aria-hidden="true">
+    </section>
+    <div class="whiteBox"></div>
+    <section class="TextSliderSection">
+        <div>
+            <div class="TextSliderHeadingContainer">
+                <h2 class="h21" id="circleSection2" style="margin-bottom: .5rem;">Innovation. Impact. Integrity.</h2>
+                <p>are the core values of our vision.</p>
+            </div>
+        </div>
+        <div class="ResponsivePaddingContainer jRolzl">
+            <section class="TextSliderContainer">
+                <article class="TextSliderSectionColumn">
+                    <div>
+                        <div class="TextStyledSlider">
+                            <div aria-hidden="true" class="TextSliderArrowControl"><button
+                                    onclick="plusSlides(-1)"><img style="margin-left: 5px;"
+                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAxOSAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4LjEyNjcgMS44NTYxNUMxOC41NTcxIDEuNTEwMDMgMTguNjI1NCAwLjg4MDU1NiAxOC4yNzkyIDAuNDUwMTg5QzE3LjkzMzEgMC4wMTk4MjIyIDE3LjMwMzcgLTAuMDQ4NDY5NCAxNi44NzMzIDAuMjk3NjU2TDE4LjEyNjcgMS44NTYxNVpNMiAxMy41NDI5TDEuMzczMjkgMTIuNzYzNkwwLjQwNDM3OCAxMy41NDI5TDEuMzczMjkgMTQuMzIyMUwyIDEzLjU0MjlaTTE2Ljg3MzMgMjYuNzg4MUMxNy4zMDM3IDI3LjEzNDIgMTcuOTMzMSAyNy4wNjU5IDE4LjI3OTIgMjYuNjM1NUMxOC42MjU0IDI2LjIwNTIgMTguNTU3MSAyNS41NzU3IDE4LjEyNjcgMjUuMjI5NkwxNi44NzMzIDI2Ljc4ODFaTTE2Ljg3MzMgMC4yOTc2NTZMMS4zNzMyOSAxMi43NjM2TDIuNjI2NzEgMTQuMzIyMUwxOC4xMjY3IDEuODU2MTVMMTYuODczMyAwLjI5NzY1NlpNMS4zNzMyOSAxNC4zMjIxTDE2Ljg3MzMgMjYuNzg4MUwxOC4xMjY3IDI1LjIyOTZMMi42MjY3MSAxMi43NjM2TDEuMzczMjkgMTQuMzIyMVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                                        alt="Left arrow - icon"></button></div>
+                            <div class="textSliderCardContainer">
+                                <div> 
+                                    <div class="meetButton">
+                                        <p aria-hidden="true">Meet the team
+                                        </p>
+                                    </div>
+                                    <div width="100" class="slides" style="display: flex;">
+                                        <div class="TextSliderSectionImageContainer">
+                                            <div style="position:relative;overflow:hidden;max-width:1000px;max-height:674px">
+                                                <img src="./assets/about_us/chap-on-sofa.png"
+                                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                                            </div>
+                                        </div>
+                                        <div class="TextSliderContentContainer">
+                                            <!-- <div class="meetButton">
+                                                <p aria-hidden="true">Meet the team
+                                                </p>
+                                            </div> -->
+                                            <h2 class="h21">Neeraj Jindal</h2>
+                                            <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>Ut enim ad minim
+                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                                velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        </div>
+                                    </div>
+                                    <div width="100" class="slides">
+                                        <div class="TextSliderSectionImageContainer">
+                                            <div style="position:relative;overflow:hidden;max-width:1000px;max-height:674px">
+                                                <img src="./assets/about_us/chap-on-sofa.png"
+                                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                                            </div>
+                                        </div>
+                                        <div class="TextSliderContentContainer">
+                                            <h2 class="h21">Abhay Gupta</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>Ut enim ad minim
+                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                                velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        </div>
+                                    </div>
+                                    <div width="100" class="slides">
+                                        <div class="TextSliderSectionImageContainer">
+                                            <div style="position:relative;overflow:hidden;max-width:1000px;max-height:674px">
+                                                <img src="./assets/about_us/chap-on-sofa.png"
+                                                    style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                                            </div>
+                                        </div>
+                                        <div class="TextSliderContentContainer">
+                                            <!-- <div class="meetButton">
+                                                <p aria-hidden="true">Meet the team
+                                                </p>
+                                            </div> -->
+                                            <h2 class="h21">M V Hande</h2>
+                                            <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>Ut enim ad minim
+                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                                velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div aria-hidden="true" class="TextSliderSectionArrowControl2"><button
+                                    onclick="plusSlides(1)"><img style="margin-left: 10px;"
+                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAxOSAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE4LjEyNjcgMS44NTYxNUMxOC41NTcxIDEuNTEwMDMgMTguNjI1NCAwLjg4MDU1NiAxOC4yNzkyIDAuNDUwMTg5QzE3LjkzMzEgMC4wMTk4MjIyIDE3LjMwMzcgLTAuMDQ4NDY5NCAxNi44NzMzIDAuMjk3NjU2TDE4LjEyNjcgMS44NTYxNVpNMiAxMy41NDI5TDEuMzczMjkgMTIuNzYzNkwwLjQwNDM3OCAxMy41NDI5TDEuMzczMjkgMTQuMzIyMUwyIDEzLjU0MjlaTTE2Ljg3MzMgMjYuNzg4MUMxNy4zMDM3IDI3LjEzNDIgMTcuOTMzMSAyNy4wNjU5IDE4LjI3OTIgMjYuNjM1NUMxOC42MjU0IDI2LjIwNTIgMTguNTU3MSAyNS41NzU3IDE4LjEyNjcgMjUuMjI5NkwxNi44NzMzIDI2Ljc4ODFaTTE2Ljg3MzMgMC4yOTc2NTZMMS4zNzMyOSAxMi43NjM2TDIuNjI2NzEgMTQuMzIyMUwxOC4xMjY3IDEuODU2MTVMMTYuODczMyAwLjI5NzY1NlpNMS4zNzMyOSAxNC4zMjIxTDE2Ljg3MzMgMjYuNzg4MUwxOC4xMjY3IDI1LjIyOTZMMi42MjY3MSAxMi43NjM2TDEuMzczMjkgMTQuMzIyMVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                                        alt="Right arrow - icon"></button></div>
+                        </div>
+                        <ul class="sc-bZQynM dhTOCp"></ul>
+                    </div>
+                </article>
+                <!-- <div class="TextSliderSectionImageContainer">
+                    <div style="position:relative;overflow:hidden;max-width:1000px;max-height:674px">
+                        <img src="./assets/about_us/chap-on-sofa.png"
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                    </div>
+                </div> -->
+            </section>
+        </div>
+    </section>
+    <section style="padding-top: 4rem;margin-bottom: 4rem;" aria-hidden="true">
+        <div>
+            <div style="position:relative;overflow:hidden;max-width:2000px;max-height:1214px">
+                <img src="./assets/about_us/company-woman-full.png"
+                    style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+            </div>
+        </div>
+    </section>
+    <div class="EmpoweringOurPartners">
+        <div class="ResponsivePaddingContainer">
+            <div class="EmpoweringOurPartners__Heading">
+                <h2 class="h21">Empowering our partners.</h2>
+            </div>
+            <div class="EmpoweringOurPartners__CardContainer">
+                <div class="EmpoweringOurPartners__Card">
+                    <div><img
+                            src="./assets/about_us/singlecare-logo.png">
+                    </div>
+                </div>
+                <div class="EmpoweringOurPartners__Card">
+                    <div><img
+                            src="./assets/about_us/phil-logo.png">
+                    </div>
+                </div>
+                <div class="EmpoweringOurPartners__Card">
+                    <div ><img
+                           src="./assets/about_us/singlecare-logo.png">
+                    </div>
+                </div>
+                <div class="EmpoweringOurPartners__Card">
+                    <div ><img
+                            src="./assets/about_us/phil-logo.png">
+                    </div>
+                </div>
+            </div>
+            <div class="EmpoweringOurPartners__Information">
+                <p>Our partners include some of the
+                    world’s most famous organizations and
+                    brands. We're honored and proud to be
+                    working with them.</p>
+                <p>From the largest corporations to
+                    passionate and innovative startups, we
+                    strive to put their customers first.</p>
+            </div>
+        </div>
+    </div>
+    <section class="AnimatedPharmacyMap__Container">
+        <div class="ResponsivePaddingContainer">
+            <div class="AnimatedPharmacyMap__ContentContainer" style="display: flex;">
+                <div class="AnimatedPharmacyMap__Column" style="flex-basis: 650px;">
+                    <h2 class="h21" style="margin-bottom: 1.5rem;">Global player with strong
+                        roots.</h2>
+                    <p style="margin-bottom: 2rem;">Currently present in 4 continents, we are
+                        moving forward with a vision of being
+                        a global entity, by increasing the range
+                        of our Active Ingredients to make them
+                        accessible anywhere in the
+                        world.
+                        <strong>cash and insurance</strong>
+                        based medications. They get medication to patients’ doors on time, every time.
+                    </p>
+                    <p style="margin-bottom: 2rem;">Our network of providers can also diagnose, treat, and prescribe
+                        across the entire US.</p>
+                </div>
+                <div>
+                    <video id="mapVideo" style="width: 100%;
+                    position: relative;
+                    left: 4rem;
+                    height: auto;" autoplay muted loop preload="auto" class="AnimatedPharmacyMap__StyledVideo">
+                        <source src="https://truepill.com/static/animated-map-8d75f79929b39d192c3a8b3774ba6a03.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="HeroBannergroundImage"
+        style="background-position: 50% 0%; background-repeat: no-repeat; background-size: 150%; position: relative; opacity: 0.99;">
+        <div class="ResponsivePaddingContainer" style="padding:4rem 0px 10rem;">
+            <section class="HeroBanner__Container">
+                <div class="HeroBanner__StyledCircleImage"
+                    style="background-position: center center; background-repeat: no-repeat; background-size: contain; position: relative; opacity: 0.99;">
+                    <h1><span>Explore</span>
+                        <span>our</span>
+                        <span>products</span>
+            </section>
+        </div>
+    </div>
+    <section class="HeroImageWithContent__Container">
+        <div class="ResponsivePaddingContainer">
+            <div class="HeroImageWithContentColumn">
+                <h2 class="h21">Join our team.</h2>
+                <div data-aos="fade-left" data-aos-duration="800" style="opacity: 1;">
+                    <span>
+                        <p>We are a team of passionate and
+                            hardworking individuals with a single
+                            purpose- to protect humans
+                            everywhere from the impacts of pests.</p>
+                    </span><button data-bs-toggle="modal" onclick="checkWidth()" data-bs-target="#exampleModal"
+                        type="solid" class="blueStyledButton">See our opportunities</button>
+                </div>
+            </div>
+        </div>
+        <div class="HeroImageWithContentContainer2">
+            <div class="HeroImageWithContentImageSizeContainer">
+                <div style="position:relative;overflow:hidden;max-width:950px;max-height:847px">
+                    <img aria-hidden="true"
+                        src="./assets/about_us/join-our-team.png"
+                        alt=""
+                        class="about_image"
+                        >
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modalStylish-dialog" id="contactUsDialog">
+            <!-- modal-fullscreen -->
+            <div class="modalCircle">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTg1IiBoZWlnaHQ9IjE4NSIgdmlld0JveD0iMCAwIDE4NSAxODUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgb3BhY2l0eT0iMC42IiBjeD0iOTIuNSIgY3k9IjkyLjUiIHI9IjkyLjUiIGZpbGw9IiMzRkJGRDIiLz4KPC9zdmc+Cg=="
+                    alt="" aria-hidden="true" class="bubble1">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzc5IiBoZWlnaHQ9IjM3OSIgdmlld0JveD0iMCAwIDM3OSAzNzkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuNiI+CjxjaXJjbGUgcj0iMTg5LjUiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDE4OS41IDE4OS41KSIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSByPSIxODkuNSIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMTg5LjUgMTg5LjUpIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXIpIi8+CjwvZz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhciIgeDE9IjEzLjYwNTEiIHkxPSItOC45MjcxOSIgeDI9IjMwMS43NjgiIHkyPSI0MjkuNzM1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMzRkJGRDIiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDU0QzdFIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg=="
+                    alt="" aria-hidden="true" class="bubble4">
+            </div>
+            <div id="modal-content" role="dialog" aria-modal="true" aria-label="Contact modal" class="modal-content modalStylish-content">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBvcGFjaXR5PSIwLjciIHI9IjQ4IiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0OCA0OCkiIGZpbGw9IiMzRkJGRDIiLz4KPC9zdmc+Cg=="
+                    alt="" aria-hidden="true" class="bubble2"><img
+                    src="https://truepill.com/static/dotDecoration.849e60c8.svg" name="DotDecoration" alt=""
+                    aria-hidden="true" class="bubble3">
+                <button type="button" class="btn close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <svg style="    filter: contrast(0.5);" aria-label="Close" viewBox="0 0 24 24"
+                        class="StyledIcon-ofa7kd-0 iwKnNK">
+                        <path fill="none" stroke="#000" stroke-width="2" d="M3,3 L21,21 M3,21 L21,3"></path>
+                    </svg>
+                </button>
+                <h2 class="h21" style="margin-bottom: 0px;">Let's start something great</h2>
+                <form action="" class="ContactForm" id="contactUsForm">
+                    <div class="InputWrapper">
+                        <div class="contactTab">
+                            <div class="RadioInputLabel"><input type="radio" id="Business" onclick="checkTab()"
+                                    name="customer" required=""  aria-required="true" aria-label="Business"
+                                    value="Business"><label for="Business" aria-hidden="true">Business</label></div>
+                            <div class="RadioInputLabel"><input type="radio" onclick="checkTab()" id="Career" name="customer"
+                                    required="" checked="" aria-required="true" aria-label="Career" value="Career"><label
+                                    for="Career" aria-hidden="true">Career</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ContactForm__Text business">
+                        <div class="formLabel">
+                            <p>Name</p>
+                        </div>
+                        <div>
+                            <div class="InputWrapper"><input  disabled="true" type="text" name="Name" placeholder="Name" required=""
+                                    aria-required="true" class="form-input" value=""></div>
+                        </div>
+                    </div>
+                    <div class="ContactForm__Text">
+                        <div class="formLabel">
+                            <p>Company</p>
+                        </div>
+                        <div class="InputWrapper"><input type="text" id="company" name="CompanyName" required=""
+                                aria-required="true" class="form-input" placeholder="Company"></div>
+                    </div>
+                    <div class="ContactForm__Text career">
+                        <div class="formLabel">
+                            <p>Location</p>
+                        </div>
+                        <div class="InputWrapper"><input type="text" id="location" name="location" required=""
+                                aria-required="true" class="form-input" placeholder="Location"></div>
+                    </div>
+                    <div class="ContactForm__Text career">
+                        <div class="formLabel">
+                            <p>Product Type</p>
+                        </div>
+                        <div class="InputWrapper select-wrapper"><select id="productType" name="productType" required=""
+                                aria-required="true" class="form-input classic" placeholder="Product Type">
+                                <option value="">Select option</option>
+                                <option value="Agricultural AI">Agricultural AI</option>
+                                <option value="Household Insecticides">Household Insecticides</option>
+                            </select></div>
+                    </div>
+                    <div class="ContactForm__Text ">
+                        <div class="formLabel">
+                            <p>Email</p>
+                        </div>
+                        <div class="InputWrapper"><input type="email" name="Email" required="" aria-required="true"
+                                class="form-input" placeholder="Email"></div>
+                    </div>
+                    <div class="ContactForm__Text">
+                        <div class="formLabel">
+                            <p>Mobile</p>
+                        </div>
+                        <div class="InputWrapper"><input type="number" name="Mobile" required="" aria-required="true"
+                                class="form-input" placeholder="Mobile"></div>
+                    </div>
+                    <div class="ContactForm__Text business">
+                        <div class="formLabel">
+                            <p>Query</p>
+                        </div>
+                        <div class="InputWrapper"><input  disabled="true" type="text" name="Query" placeholder="Query" required=""
+                                aria-required="true" class="form-input" value=""></div>
+                    </div>
+                    <div class="ContactForm__ButtonContainer"><button type="submit"
+                            class="blueStyledButton">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>  
+        <div class="ResponsivePaddingContainer desktopContainer">
+            <div class="FooterDesktopMain__Container">
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Solutions</h4><a href="/health-brands">Health
+                            brands</a><a href="/pharma-manufacturers">Pharma manufacturers</a><a href="/health-plans">Health
+                            plans</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Company</h4><a href="./aboutus.html">About
+                            Shogun</a><a href="./getintouch.html">Careers</a><a
+                            href="#">Insights</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Business</h4> <a href="#">Contact sales</a><a
+                            href="mailto: press@shogun.com">Media inquires</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Social</h4>
+                        <div class="FooterDesktopMain__LogoLinkContainer">
+                            <div><img
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC4xIDAuMzk5OTAyQzQuNzk4IDAuMzk5OTAyIDAuNSA0LjY5NzkgMC41IDkuOTk5OUMwLjUgMTUuMzAxOSA0Ljc5OCAxOS41OTk5IDEwLjEgMTkuNTk5OUMxNS40MDIgMTkuNTk5OSAxOS43IDE1LjMwMTkgMTkuNyA5Ljk5OTlDMTkuNyA0LjY5NzkgMTUuNDAyIDAuMzk5OTAyIDEwLjEgMC4zOTk5MDJaTTE0LjAwNSA4LjI2MzlDMTQuMDA5IDguMzQ1OSAxNC4wMSA4LjQyNzkgMTQuMDEgOC41MDc5QzE0LjAxIDExLjAwNzkgMTIuMTA5IDEzLjg4ODkgOC42MzEgMTMuODg4OUM3LjYwMzI5IDEzLjg5MDYgNi41OTY5NyAxMy41OTU0IDUuNzMzIDEzLjAzODlDNS44OCAxMy4wNTY5IDYuMDMxIDEzLjA2MzkgNi4xODQgMTMuMDYzOUM3LjA3IDEzLjA2MzkgNy44ODUgMTIuNzYyOSA4LjUzMiAxMi4yNTQ5QzguMTM3NzIgMTIuMjQ3MiA3Ljc1NTY3IDEyLjExNjYgNy40MzkxMSAxMS44ODE0QzcuMTIyNTUgMTEuNjQ2MiA2Ljg4NzI1IDExLjMxODIgNi43NjYgMTAuOTQyOUM3LjA0OTE2IDEwLjk5NjcgNy4zNDA4NSAxMC45ODU1IDcuNjE5IDEwLjkwOTlDNy4xOTEwNSAxMC44MjM0IDYuODA2MiAxMC41OTE1IDYuNTI5NzEgMTAuMjUzNkM2LjI1MzIyIDkuOTE1NjYgNi4xMDIxMSA5LjQ5MjUyIDYuMTAyIDkuMDU1OVY5LjAzMjlDNi4zNTcgOS4xNzM5IDYuNjQ5IDkuMjU5OSA2Ljk1OSA5LjI2OTlDNi41NTc4IDkuMDAyODMgNi4yNzM3OSA4LjU5MjU3IDYuMTY1MDQgOC4xMjMwM0M2LjA1NjMgNy42NTM1IDYuMTMxMDUgNy4xNjAxNSA2LjM3NCA2Ljc0MzlDNi44NDg5NiA3LjMyNzkgNy40NDEyNiA3LjgwNTY1IDguMTEyNTcgOC4xNDYyMUM4Ljc4Mzg4IDguNDg2NzggOS41MTkyMiA4LjY4MjU2IDEwLjI3MSA4LjcyMDlDMTAuMTc1NCA4LjMxNTIxIDEwLjIxNjYgNy44ODkzMSAxMC4zODggNy41MDk0MUMxMC41NTk1IDcuMTI5NTEgMTAuODUxNiA2LjgxNjg5IDExLjIxOTEgNi42MjAxN0MxMS41ODY1IDYuNDIzNDQgMTIuMDA4NyA2LjM1MzYzIDEyLjQxOTkgNi40MjE1N0MxMi44MzExIDYuNDg5NTIgMTMuMjA4NCA2LjY5MTQzIDEzLjQ5MyA2Ljk5NTlDMTMuOTE2MiA2LjkxMjE4IDE0LjMyMiA2Ljc1Njk2IDE0LjY5MyA2LjUzNjlDMTQuNTUyIDYuOTc1MDQgMTQuMjU2NyA3LjM0NzA4IDEzLjg2MiA3LjU4MzlDMTQuMjM2OCA3LjUzODc1IDE0LjYwMjkgNy40Mzc5OCAxNC45NDggNy4yODQ5QzE0LjY5NDUgNy42NjQ4IDE0LjM3NTEgNy45OTYzNCAxNC4wMDUgOC4yNjM5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                    alt=""><a href="https://twitter.com/shogun_rx?lang=en" rel="noreferrer noopener"
+                                    target="_blank">Twitter</a></div>
+                        </div>
+                        <div class="FooterDesktopMain__LogoLinkContainer">
+                            <div><img
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC41MDA0IDAuMzk5OTAyQzUuMTk4MzkgMC4zOTk5MDIgMC45MDAzOTEgNC42OTc5IDAuOTAwMzkxIDkuOTk5OUMwLjkwMDM5MSAxNS4zMDE5IDUuMTk4MzkgMTkuNTk5OSAxMC41MDA0IDE5LjU5OTlDMTUuODAyNCAxOS41OTk5IDIwLjEwMDQgMTUuMzAxOSAyMC4xMDA0IDkuOTk5OUMyMC4xMDA0IDQuNjk3OSAxNS44MDI0IDAuMzk5OTAyIDEwLjUwMDQgMC4zOTk5MDJaTTguMTUwMzkgMTMuOTc4OUg2LjIwNjM5VjcuNzIyOUg4LjE1MDM5VjEzLjk3ODlaTTcuMTY2MzkgNi45NTQ5QzYuNTUyMzkgNi45NTQ5IDYuMTU1MzkgNi41MTk5IDYuMTU1MzkgNS45ODE5QzYuMTU1MzkgNS40MzI5IDYuNTY0MzkgNS4wMTA5IDcuMTkxMzkgNS4wMTA5QzcuODE4MzkgNS4wMTA5IDguMjAyMzkgNS40MzI5IDguMjE0MzkgNS45ODE5QzguMjE0MzkgNi41MTk5IDcuODE4MzkgNi45NTQ5IDcuMTY2MzkgNi45NTQ5Wk0xNS4yNTA0IDEzLjk3ODlIMTMuMzA2NFYxMC41MTE5QzEzLjMwNjQgOS43MDQ5IDEzLjAyNDQgOS4xNTY5IDEyLjMyMTQgOS4xNTY5QzExLjc4NDQgOS4xNTY5IDExLjQ2NTQgOS41Mjc5IDExLjMyNDQgOS44ODQ5QzExLjI3MjQgMTAuMDExOSAxMS4yNTk0IDEwLjE5MTkgMTEuMjU5NCAxMC4zNzA5VjEzLjk3NzlIOS4zMTQzOVY5LjcxNzlDOS4zMTQzOSA4LjkzNjkgOS4yODkzOSA4LjI4MzkgOS4yNjMzOSA3LjcyMTlIMTAuOTUyNEwxMS4wNDE0IDguNTkwOUgxMS4wODA0QzExLjMzNjQgOC4xODI5IDExLjk2MzQgNy41ODA5IDEzLjAxMjQgNy41ODA5QzE0LjI5MTQgNy41ODA5IDE1LjI1MDQgOC40Mzc5IDE1LjI1MDQgMTAuMjc5OVYxMy45Nzg5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                    alt=""><a href="https://www.linkedin.com/company/shogun" rel="noreferrer noopener"
+                                    target="_blank">LinkedIn</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="FooterDesktop__CopyrightContainer"><a aria-current="page" class="" href="./index.html">
+                    <div
+                        style="position:relative;overflow:hidden;display:inline-block;width:85px;height:33px"><img
+                            src="./assets/Shogun_logo.png" alt="Shogun logo - link to homepage"
+                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: contain; object-position: center center;">
+                    </div>
+                </a>
+                <small id="copyright" class="copyrightDesktop">&#169;Shogun Organics
+                    2021
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved.
+                </small>
+            </div>
+        </div>
+        <div class="mobileContainer accordion" id="accordion">
+            <div id="headingOne"  >
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-controls="collapseOne">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Solutions</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton">
+                    </div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    >
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="#">Health brands</a></li>
+                            <li><a href="#">Pharma manufacturers</a></li>
+                            <li><a href="#">Health plans</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingTwo" >
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                     aria-controls="collapseTwo">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Company</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="./aboutus.html">About Shogun</a></li>
+                            <li><a href="./getintouch.html">Careers</a></li>
+                            <li><a href="#">Insights</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingThree" >
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                     aria-controls="collapseThree">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Business</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    >
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="./index.html">Contact sales</a></li>
+                            <li><a href="mailto: press@shogun.com">Media inquires</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingFour">
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                     aria-controls="collapseFour">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Social</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    >
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li>
+                                <div class="FooterMobile__LogoLinkContainer">
+                                    <div><img style="margin-right: 0.5rem;"
+                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC4xIDAuMzk5OTAyQzQuNzk4IDAuMzk5OTAyIDAuNSA0LjY5NzkgMC41IDkuOTk5OUMwLjUgMTUuMzAxOSA0Ljc5OCAxOS41OTk5IDEwLjEgMTkuNTk5OUMxNS40MDIgMTkuNTk5OSAxOS43IDE1LjMwMTkgMTkuNyA5Ljk5OTlDMTkuNyA0LjY5NzkgMTUuNDAyIDAuMzk5OTAyIDEwLjEgMC4zOTk5MDJaTTE0LjAwNSA4LjI2MzlDMTQuMDA5IDguMzQ1OSAxNC4wMSA4LjQyNzkgMTQuMDEgOC41MDc5QzE0LjAxIDExLjAwNzkgMTIuMTA5IDEzLjg4ODkgOC42MzEgMTMuODg4OUM3LjYwMzI5IDEzLjg5MDYgNi41OTY5NyAxMy41OTU0IDUuNzMzIDEzLjAzODlDNS44OCAxMy4wNTY5IDYuMDMxIDEzLjA2MzkgNi4xODQgMTMuMDYzOUM3LjA3IDEzLjA2MzkgNy44ODUgMTIuNzYyOSA4LjUzMiAxMi4yNTQ5QzguMTM3NzIgMTIuMjQ3MiA3Ljc1NTY3IDEyLjExNjYgNy40MzkxMSAxMS44ODE0QzcuMTIyNTUgMTEuNjQ2MiA2Ljg4NzI1IDExLjMxODIgNi43NjYgMTAuOTQyOUM3LjA0OTE2IDEwLjk5NjcgNy4zNDA4NSAxMC45ODU1IDcuNjE5IDEwLjkwOTlDNy4xOTEwNSAxMC44MjM0IDYuODA2MiAxMC41OTE1IDYuNTI5NzEgMTAuMjUzNkM2LjI1MzIyIDkuOTE1NjYgNi4xMDIxMSA5LjQ5MjUyIDYuMTAyIDkuMDU1OVY5LjAzMjlDNi4zNTcgOS4xNzM5IDYuNjQ5IDkuMjU5OSA2Ljk1OSA5LjI2OTlDNi41NTc4IDkuMDAyODMgNi4yNzM3OSA4LjU5MjU3IDYuMTY1MDQgOC4xMjMwM0M2LjA1NjMgNy42NTM1IDYuMTMxMDUgNy4xNjAxNSA2LjM3NCA2Ljc0MzlDNi44NDg5NiA3LjMyNzkgNy40NDEyNiA3LjgwNTY1IDguMTEyNTcgOC4xNDYyMUM4Ljc4Mzg4IDguNDg2NzggOS41MTkyMiA4LjY4MjU2IDEwLjI3MSA4LjcyMDlDMTAuMTc1NCA4LjMxNTIxIDEwLjIxNjYgNy44ODkzMSAxMC4zODggNy41MDk0MUMxMC41NTk1IDcuMTI5NTEgMTAuODUxNiA2LjgxNjg5IDExLjIxOTEgNi42MjAxN0MxMS41ODY1IDYuNDIzNDQgMTIuMDA4NyA2LjM1MzYzIDEyLjQxOTkgNi40MjE1N0MxMi44MzExIDYuNDg5NTIgMTMuMjA4NCA2LjY5MTQzIDEzLjQ5MyA2Ljk5NTlDMTMuOTE2MiA2LjkxMjE4IDE0LjMyMiA2Ljc1Njk2IDE0LjY5MyA2LjUzNjlDMTQuNTUyIDYuOTc1MDQgMTQuMjU2NyA3LjM0NzA4IDEzLjg2MiA3LjU4MzlDMTQuMjM2OCA3LjUzODc1IDE0LjYwMjkgNy40Mzc5OCAxNC45NDggNy4yODQ5QzE0LjY5NDUgNy42NjQ4IDE0LjM3NTEgNy45OTYzNCAxNC4wMDUgOC4yNjM5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                            alt=""><a href="https://twitter.com/shogun_rx?lang=en"
+                                            target="_blank">Twitter</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="FooterMobile__LogoLinkContainer">
+                                    <div><img style="margin-right: 0.5rem;"
+                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC41MDA0IDAuMzk5OTAyQzUuMTk4MzkgMC4zOTk5MDIgMC45MDAzOTEgNC42OTc5IDAuOTAwMzkxIDkuOTk5OUMwLjkwMDM5MSAxNS4zMDE5IDUuMTk4MzkgMTkuNTk5OSAxMC41MDA0IDE5LjU5OTlDMTUuODAyNCAxOS41OTk5IDIwLjEwMDQgMTUuMzAxOSAyMC4xMDA0IDkuOTk5OUMyMC4xMDA0IDQuNjk3OSAxNS44MDI0IDAuMzk5OTAyIDEwLjUwMDQgMC4zOTk5MDJaTTguMTUwMzkgMTMuOTc4OUg2LjIwNjM5VjcuNzIyOUg4LjE1MDM5VjEzLjk3ODlaTTcuMTY2MzkgNi45NTQ5QzYuNTUyMzkgNi45NTQ5IDYuMTU1MzkgNi41MTk5IDYuMTU1MzkgNS45ODE5QzYuMTU1MzkgNS40MzI5IDYuNTY0MzkgNS4wMTA5IDcuMTkxMzkgNS4wMTA5QzcuODE4MzkgNS4wMTA5IDguMjAyMzkgNS40MzI5IDguMjE0MzkgNS45ODE5QzguMjE0MzkgNi41MTk5IDcuODE4MzkgNi45NTQ5IDcuMTY2MzkgNi45NTQ5Wk0xNS4yNTA0IDEzLjk3ODlIMTMuMzA2NFYxMC41MTE5QzEzLjMwNjQgOS43MDQ5IDEzLjAyNDQgOS4xNTY5IDEyLjMyMTQgOS4xNTY5QzExLjc4NDQgOS4xNTY5IDExLjQ2NTQgOS41Mjc5IDExLjMyNDQgOS44ODQ5QzExLjI3MjQgMTAuMDExOSAxMS4yNTk0IDEwLjE5MTkgMTEuMjU5NCAxMC4zNzA5VjEzLjk3NzlIOS4zMTQzOVY5LjcxNzlDOS4zMTQzOSA4LjkzNjkgOS4yODkzOSA4LjI4MzkgOS4yNjMzOSA3LjcyMTlIMTAuOTUyNEwxMS4wNDE0IDguNTkwOUgxMS4wODA0QzExLjMzNjQgOC4xODI5IDExLjk2MzQgNy41ODA5IDEzLjAxMjQgNy41ODA5QzE0LjI5MTQgNy41ODA5IDE1LjI1MDQgOC40Mzc5IDE1LjI1MDQgMTAuMjc5OVYxMy45Nzg5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                            alt=""><a href="https://www.linkedin.com/company/shogun"
+                                            target="_blank">LinkedIn</a></div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="copyrightMobile">
+                <a aria-current="page" class="" href="./index.html">
+                    <div
+                        style="position:relative;overflow:hidden;display:inline-block;width:85px;height:33px"><img
+                            src="./assets/Shogun_logo.png"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div   id="copyright2">© Shogun
+                    <!-- -->2021<br>All Rights Reserved.
+                </div>
+            </div>
+            <div class="dataBitsBlock">
+                <img src="https://truepill.com/static/footer-data-bits.3d1c6793.svg" alt="">
+            </div>
+            </footer>
+    <!-- <script src="./common/importCommons.js"></script> -->
+    <script src="./script/script.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/about.css">
+    <script src="./script/form.js"></script>
+    <!-- for join our team Modal -->
+    <script>
+        function checkWidth() {
+            if (screen.width < 720) {
+                document.getElementById('contactUsDialog').classList.add('modal-fullscreen');
+                document.getElementById('modal-content').style = `padding: 5rem 2rem 2rem;
+                overflow: scroll;`
+            }
+        }
+    </script>
+    <!-- Meet the team slider -->
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "flex";
+        }
+    </script>
+    <style>
+        .business {
+            display: none;
+        }
+    </style>
+     <script>
+        function checkTab() {
+            if (document.getElementById('Business').checked) {
+                let n=document.getElementById('contactUsForm').querySelectorAll("[required]")
+                for (let index = 0; index <n.length; index++) {
+                    if(n[index]['name']=='location' ||n[index]['name']=='productType'){
+                        n[index].disabled=true
+                    }else if(n[index]['name']=='Name' ||n[index]['name']=='Query'){
+                        n[index].disabled=false                    }
+                }
+                var nodes = document.querySelectorAll('.business');
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].nodeName.toLowerCase() == 'div') {
+                        nodes[i].style.display = 'grid';
+                    }
+                }
+                var nodes = document.querySelectorAll('.career');
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].nodeName.toLowerCase() == 'div') {
+                        nodes[i].style.display = 'none';
+                    }
+                }
+            } else {
+                let n=document.getElementById('contactUsForm').querySelectorAll("[required]")
+                for (let index = 0; index <n.length; index++) {
+                    if(n[index]['name']=='Name' ||n[index]['name']=='Query'){
+                        n[index].disabled=true
+                    }else  if(n[index]['name']=='location' ||n[index]['name']=='productType'){
+                        n[index].disabled=false
+                    }
+                }
+                var nodes = document.querySelectorAll('.business');
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].nodeName.toLowerCase() == 'div') {
+                        nodes[i].style.display = 'none';
+                    }
+                }
+                var nodes = document.querySelectorAll('.career');
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].nodeName.toLowerCase() == 'div') {
+                        nodes[i].style.display = 'grid';
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        var lastScrollTop = 0;
+        n = .5
+        diff=.013
+        if(screen.width<=480){
+          diff=.025
+        }
+        
+        if($(this).scrollTop() >=$('#circleSection2').position().top){ 
+            n=1
+            document.getElementById('makers').style = `transform: translate3d(0px,0px, 0px) scale(1);`
+        }
+        $(document).on('scroll', function () {
+            console.log($(this).scrollTop()>=$('#circleSection').position().top+1400 )
+            var st = $(this).scrollTop();
+            if ($(this).scrollTop()>= $('#circleSection').position().top+1400 ) {
+                if (st > lastScrollTop) {
+                    if (n<1){
+                        n = n + diff
+                        document.getElementById('makers').style = `transform: translate3d(0px,0px, 0px) scale(${n});`
+                    }
+                } 
+            }
+            if($(this).scrollTop() <= $('#circleSection2').position().top){
+                if (st < lastScrollTop) {
+                    // upscroll code
+                    if (n > .5){
+                        n = n - diff
+                        document.getElementById('makers').style = `transform: translate3d(0px,0px, 0px) scale(${n});`
+                    }
+                }
+               
+            }
+            lastScrollTop = st;
+            
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogun - Home Care AI</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+    <div id="loadOverlay"
+        style="background-color:white; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;">
+    </div>
+</head>
+
+<body>
+    <header>
+        <div id="header-wrapper">
+            <div class="Navbar__StyledWrapper">
+                <div class="Navbar__StyledWrapper2">
+                    <div class="ResponsivePaddingContainer Navbar__StyledPaddingContainer">
+                        <nav class="Navbar__NavbarContainer navbar">
+                            <div class="Navbar__LogoContainer"><a aria-current="page" class="" href="./index.html"><img
+                                        src="./assets/Shogun_logo.png" alt="Shogun logo" class="Navbar__StyledLogo"></a>
+                            </div>
+                            <div style="margin-bottom: 9px">
+                                <ul class="Navbar__ListNavigation">
+                                    <li class="nav-item dropdown" style="cursor:pointer">
+                                        <a class="nav-link">Products</a>
+                                        <ul style="padding-top: 50px;" aria-labelledby="dropdownUser1"
+                                            class=" dropdown-menu Navbar__DropdownMenu">
+                                            <li class="DropdownMenu__Container">
+                                                <div class="DropdownMenu__ContentContainer">
+                                                    <div class="DropdownMenu__Column">
+                                                        <ul class="DropdownMenu__MenuList">
+                                                            <li><a href="./homecare.html">
+                                                                    <div><img
+                                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDUuMzQzOSA0OS45MjM0QzQ0LjUwMjkgNTMuMDMyNSA0MS44NDMyIDUzLjgwNzkgMzkuMTgzNSA1MS41ODkzTDMwLjA1NDMgNDMuOTYzOUMyOS41MTUyIDQ0LjQwMTkgMjguOTk3NiA0NC44NjE0IDI4LjQ5NDQgNDUuMzQyNUMyNi4wMDU5IDQ3Ljc0MSAyNC4wMDY2IDUwLjU5ODggMjIuNjA3MiA1My43NTc3TDE3LjQ5NjMgNjUuMjQ2QzI1LjMyMTYgNjkuNzU2NCAzNC41OTA1IDcxLjA2NzQgNDMuMzYxNyA2OC45MDQ1QzUyLjEzMyA2Ni43NDE2IDU5LjcyNjMgNjEuMjcyNiA2NC41NTExIDUzLjY0MjhDNTcuOTMwMyA1NC4xNTI0IDUxLjI5NDUgNTIuODY3NCA0NS4zNDM5IDQ5LjkyMzRaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTU4LjI4MzEgNDAuMDQ0MUM1NC44ODg0IDM4LjUzMzggNTEuMjE2OCAzNy43NDQgNDcuNTAwNiAzNy43MjQ5TDQ1LjQ4NzkgNDkuMjg1QzQ1LjQ0NDggNDkuNDkzMiA0NS40MDE2IDQ5LjY5NDMgNDUuMzUxMyA0OS44ODgyQzUxLjMwNjcgNTIuODQxMSA1Ny45NTEzIDU0LjEyODggNjQuNTgwMSA1My42MTQ3QzY1Ljg3NTUgNTEuNTc5NCA2Ni45NTI1IDQ5LjQxMzMgNjcuNzkzMyA0Ny4xNTI1QzY1LjE5NTcgNDQuMTAyMSA2MS45NDU3IDQxLjY3MjkgNTguMjgzMSA0MC4wNDQxWiIgZmlsbD0iI0ZGQjE2NyIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02My45NzYxIDE1LjM1MTFDNjEuNDAwMSAxMS41NTE5IDU4LjEwMDIgOC4yOTY3NCA1NC4yNjQ3IDUuNzcxNUM1MC40MjkyIDMuMjQ2MjYgNDYuMTMzMyAxLjUwMDQgNDEuNjIyMiAwLjYzMzYyQzM3LjExMTIgLTAuMjMzMTYxIDMyLjQ3MzUgLTAuMjAzODg5IDI3Ljk3MzggMC43MTk3NjRDMjMuNDc0MSAxLjY0MzQyIDE5LjIwMDYgMy40NDMzNiAxNS4zOTczIDYuMDE2ODFDMTQuNTkyMyA2LjU1NTMzIDEzLjgzMDMgNy4xMjk3NSAxMy4wOTcxIDcuNzI1N0wyMy45MzcxIDI1LjU2MTRMNDUuMDcwOCAxNy44MjgzQzQ4LjU0MjggMTYuNTY0NiA1MC44MjE1IDE4LjQ5NiA1MC4yMjQ4IDIyLjEzNjRMNDguMTYxOCAzNC4xNTYxQzU2LjAxNDEgMzQuMzU0NiA2My40ODQ4IDM3LjU4MTMgNjkuMDA3OSA0My4xNjAxQzcwLjE1ODggMzguNDMwNyA3MC4zMDU2IDMzLjUxMzEgNjkuNDM5IDI4LjcyMzZDNjguNTcyNCAyMy45MzQxIDY2LjcxMTUgMTkuMzc4OSA2My45NzYxIDE1LjM1MTFaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIGQ9Ik0zMS43ODY5IDM4LjM4NDhDMjYuMjczNiA0MS42MDIzIDIxLjkxMyA0Ni40NzA0IDE5LjMyMjMgNTIuMzAwMUwxNC40NDE1IDYzLjI1NzFDMTAuMDg4NSA2MC4xMDM4IDYuNTIyMTQgNTUuOTkwMyA0LjAxOTYgNTEuMjM2M0MxLjUxNzA1IDQ2LjQ4MjMgMC4xNDU3MyA0MS4yMTU5IDAuMDEyMjEwNiAzNS44NDY0Qy0wLjEyMTMwOSAzMC40NzY5IDAuOTg2NTc0IDI1LjE0OSAzLjI0OTc1IDIwLjI3NjhDNS41MTI5MiAxNS40MDQ2IDguODcwNDIgMTEuMTE5MyAxMy4wNjEzIDcuNzUzOThMMzAuMzg1MiAzNi4yNTIzQzMwLjgzMDkgMzYuOTc1MSAzMS4yOTgxIDM3LjY4NTkgMzEuNzg2OSAzOC4zODQ4WiIgZmlsbD0iI0ZGQjE2NyIvPgo8L3N2Zz4K"
+                                                                            alt=""></div>
+                                                                    <div>
+                                                                        <p>Home Care AI</p>
+                                                                    </div>
+                                                                </a></li>
+                                                            <li><a href="./homecare.html">
+                                                                    <div><img
+                                                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02NS41NTU1IDE3Ljk1NDVDNjEuNzgyMiAxMS4xOTA5IDU1Ljg2NzcgNS44NjkxMiA0OC43Mzk2IDIuODIzODdDNDEuNjExNSAtMC4yMjEzNzcgMzMuNjczIC0wLjgxNzkwNyAyNi4xNjg5IDEuMTI3ODNMMzAuODcyIDkuMDc3OTdDMzMuMzg5NCAxMy4zMzM0IDM0LjgyODUgMTguMTM4MiAzNS4wNjQ1IDIzLjA3NTFDNDMuNDc4MyAyMS4yNTgxIDUxLjAzNjMgMjMuNDA1NCA1Mi44OTE3IDI4LjU1NDdDNTUuMDQ5MSAzNC40OTQgNDguNzQyMyA0Mi4xOTk5IDM4Ljg2ODcgNDUuNzE5QzM3LjgyNzQgNDYuMDk3IDM2Ljc2NjMgNDYuNDE4MiAzNS42OTAxIDQ2LjY4MTNDMzkuNDYyNCA0OS45MzgxIDQzLjg1NzYgNTIuMzk1OSA0OC42MDkzIDUzLjkwNTdDNTMuMzYxMSA1NS40MTU0IDU4LjM3MDMgNTUuOTQ1OCA2My4zMzM0IDU1LjQ2NDVMNjMuNDEyNSA1NS4zNTY4QzY3LjI4ODYgNDkuOTY4OSA2OS41NDg2IDQzLjU5MDIgNjkuOTI4MSAzNi45NjY4QzcwLjMwNzYgMzAuMzQzMyA2OC43OTEgMjMuNzQ4OCA2NS41NTU1IDE3Ljk1NDVaIiBmaWxsPSIjOThCMUI3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTMxLjEzODQgMjQuMjAyNUwzMS40OTc5IDI0LjA4MDRDMzEuNDIyOCAxOS40MzkyIDMwLjEzOSAxNC44OTc0IDI3Ljc3MjggMTAuOTAyTDIyLjY1OTggMi4yODM5N0MxOC43MzYyIDMuNzYzNzIgMTUuMTA5NiA1LjkzMzM0IDExLjk1MiA4LjY5MDA1TDIzLjA2OTcgMjguNTYxOEMyNS41MTM5IDI2LjY5NTQgMjguMjM2NyAyNS4yMjQzIDMxLjEzODQgMjQuMjAyNVoiIGZpbGw9IiM5OEIxQjciLz4KPHBhdGggZD0iTTE3LjExNTEgNDEuMzY3M0MxNS42NzY5IDM3LjI4ODEgMTguMTU3OSAzMi4zODMgMjMuMDY5NSAyOC41NjI0TDExLjk0NDYgOC42NTQ3MUM1Ljk3Njc0IDEzLjg3NjUgMS45NjIxOSAyMC45NjgxIDAuNTU4OTI5IDI4Ljc2N0MtMC44NDQzMjggMzYuNTY2IDAuNDQ2OTU5IDQ0LjYwOTcgNC4yMjExNCA1MS41Nzk3QzkuMTQ3MjggNTEuNjU0NyAxMy45OTgyIDUwLjM2NzIgMTguMjM3IDQ3Ljg1OTZDMTkuMjg2NyA0Ny4yMzg0IDIwLjI5MzMgNDYuNTQ3NCAyMS4yNTAxIDQ1Ljc5MTNDMTkuMzU1MyA0NC45IDE3Ljg3NTIgNDMuMzE2NSAxNy4xMTUxIDQxLjM2NzNaIiBmaWxsPSIjOThCMUI3Ii8+CjxwYXRoIGQ9Ik0zMC4zNDc1IDQwLjkzNTlDMjcuNzU5MiA0NS4wMjY4IDI0LjIyODIgNDguNDM5NyAyMC4wNDk2IDUwLjg4OTdDMTYuMzI0NSA1My4wOTMgMTIuMTcxMiA1NC40NzY0IDcuODY3NTEgNTQuOTQ3NEM3LjM3ODUgNTQuOTk3NiA2Ljg4OTUgNTUuMDMzNSA2LjQyOTI1IDU1LjA2MjNDOS42NDA3OSA1OS42MDI0IDEzLjg5MDMgNjMuMzEyMiAxOC44MjUxIDY1Ljg4MzZDMjMuNzU5OSA2OC40NTUgMjkuMjM3NiA2OS44MTQgMzQuODAzNyA2OS44NDc3QzQwLjM2OTcgNjkuODgxNCA0NS44NjM1IDY4LjU4ODkgNTAuODI5MiA2Ni4wNzc0QzU1Ljc5NDggNjMuNTY1OSA2MC4wODkxIDU5LjkwNzkgNjMuMzU1NSA1NS40MDdDNTcuMDcxOSA1Ni4wMzM3IDUwLjczMjcgNTUuMDMxMSA0NC45NTA0IDUyLjQ5NjFDMzkuMTY4MiA0OS45NjExIDM0LjEzODUgNDUuOTc5NCAzMC4zNDc1IDQwLjkzNTlaIiBmaWxsPSIjOThCMUI3Ii8+Cjwvc3ZnPgo="
+                                                                            alt=""></div>
+                                                                    <div>
+                                                                        <p>Agrochemical AI</p>
+                                                                    </div>
+                                                                </a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="DropdownMenu__ContentFooter-tm84eq-5 hGsRqE">
+                                                    <ul class="DropdownMenu__MenuList-tm84eq-10 fiMFGb">
+                                                        <li><a href="#" target="_blank">
+                                                                <div><img
+                                                                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0wIDM1QzAgMTUuNjcgMTUuNjcgMCAzNSAwQzU0LjMzIDAgNzAgMTUuNjcgNzAgMzVDNzAgNTQuMzMgNTQuMzMgNzAgMzUgNzBDMTUuNjcgNzAgMCA1NC4zMyAwIDM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTY5Ljc1NTIgMzAuNzk0OEM2OS41MDU5IDI4LjY5NzMgNjkuMDYyOSAyNi42Mjc0IDY4LjQzMiAyNC42MTE0QzYzLjUxMDkgMzAuNTAzMSA1Ni44NTA5IDM0LjY5MDggNDkuNDAzOCAzNi41NzYxTDUwLjY4MzkgNDEuMjI5OEM1MS43NzcgNDUuMDkzNiA0OS4zMzkxIDQ4LjI4MjIgNDUuMzA0OCA0OC4zMTgxSDQzLjY3MjRDNDUuODAyNyA1MS45NDMzIDQ4Ljc1MzEgNTUuMDIwMSA1Mi4yODc1IDU3LjMwMjVDNTQuMzYxNiA1OC42NDgxIDU2LjYwOTEgNTkuNzA2MyA1OC45NjgyIDYwLjQ0OEM2Mi45NzI0IDU2LjY5OSA2Ni4wMzU2IDUyLjA2MDYgNjcuOTA5OCA0Ni45MDg2QzY5Ljc4MzkgNDEuNzU2NyA3MC40MTYxIDM2LjIzNjMgNjkuNzU1MiAzMC43OTQ4WiIgZmlsbD0iIzZFQ0ZERCIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik01OC41NDQxIDkuMDk4ODhDNTMuNTE5NCAxMC43NTAxIDQ5LjA5NzYgMTMuODUxNSA0NS44MzcxIDE4LjAxMTRDNDUuMzMzNyAxOC42NTA1IDQ0Ljg1MTkgMTkuMzI1NiA0NC4zOTg4IDIwLjAxNTFDNDMuNzk2MiAyMC45Mzk2IDQzLjI0ODcgMjEuODk4OCA0Mi43NTkyIDIyLjg4NzdDNDQuODczIDI0LjEyIDQ2LjQ0ODIgMjYuMDk3OSA0Ny4xNzQ3IDI4LjQzMkw0OS40MDQgMzYuNTU0NUM1Ni44NDczIDM0LjY3MjggNjMuNTA2MyAzMC40OTMzIDY4LjQzMjEgMjQuNjExM0M2OS4wNTcgMjYuNjI5IDY5LjQ5OTggMjguNjk4NCA2OS43NTUzIDMwLjc5NDhDNjguNzYzIDIyLjQ0ODUgNjQuNzgwOSAxNC43NDI0IDU4LjU0NDEgOS4wOTg4OFoiIGZpbGw9IiM2RUNGREQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNMTkuMzA4NyAyOC42ODM2QzE4LjI1MTYgMjQuODE5OCAyMC42NjA2IDIxLjYzMTIgMjQuNjczNCAyMS42MDI0TDM3Ljk0ODUgMjEuNDg3NUMzOC40MzA3IDIxLjQ4MTggMzguOTEyNCAyMS41MjI3IDM5LjM4NjggMjEuNjA5NkM0Mi42Mjk2IDE0Ljc2NjQgNDguMzAwNyA5LjM2OTA2IDU1LjMwMTEgNi40NjM0MUM0Ny43NDU0IDEuMDk1NDEgMzguMzY1MiAtMS4wNTgyNCAyOS4yMjA2IDAuNDc1NDg3QzIwLjA3NjEgMi4wMDkyMSAxMS45MTUgNy4xMDQ5IDYuNTI5NzUgMTQuNjQzNEM5LjI1OCAyMS40NTI1IDEzLjk3MDMgMjcuMjg2OSAyMC4wNTY2IDMxLjM5MTFMMTkuMzA4NyAyOC42ODM2WiIgZmlsbD0iIzZFQ0ZERCIvPgo8cGF0aCBkPSJNNTAuMzM4OSA2MC4zMjY0QzQ2Ljk1ODUgNTguMTQ4NyA0NC4wNDQgNTUuMzIzMiA0MS43NjQxIDUyLjAxMzNDMzkuNDg0MyA0OC43MDM0IDM3Ljg4NDIgNDQuOTc0OSAzNy4wNTY2IDQxLjA0MzVDMzYuODA4NyAzOS44NTggMzYuNjMxIDM4LjY1OSAzNi41MjQ1IDM3LjQ1MjdDMjkuOTI3NiAzNi43MDk3IDIzLjY1NTIgMzQuMTk3IDE4LjM3MjkgMzAuMTgxMkMxMy4wOTA2IDI2LjE2NTMgOC45OTU2IDIwLjc5NjIgNi41MjI0MiAxNC42NDM2QzEuNjc3MyAyMS40MDgyIC0wLjU5MzE1NSAyOS42NzY3IDAuMTE5MDcgMzcuOTYzMkMwLjgzMTI5NCA0Ni4yNDk3IDQuNDc5NSA1NC4wMTA5IDEwLjQwODEgNTkuODUxOUMxNi4zMzY2IDY1LjY5MyAyNC4xNTY4IDY5LjIzMDkgMzIuNDYzMyA2OS44Mjk5QzQwLjc2OTcgNzAuNDI5IDQ5LjAxNzggNjguMDQ5OCA1NS43MjUyIDYzLjEyMDFDNTMuODQyOCA2Mi4zNjY1IDUyLjAzODggNjEuNDMwOSA1MC4zMzg5IDYwLjMyNjRaIiBmaWxsPSIjNkVDRkREIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDAiPgo8cGF0aCBkPSJNMCAzNUMwIDE1LjY3IDE1LjY3IDAgMzUgMEM1NC4zMyAwIDcwIDE1LjY3IDcwIDM1QzcwIDU0LjMzIDU0LjMzIDcwIDM1IDcwQzE1LjY3IDcwIDAgNTQuMzMgMCAzNVoiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
+                                                                        alt=""></div>
+                                                                <div>
+                                                                    <p>Insights</p>
+                                                                    <p><span>Our healthcare thought leadership
+                                                                            hub</span></p>
+                                                                </div>
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown"><a class="nav-link" href="./infra.html">Infra</a>
+                                    </li>
+                                    <li class="nav-item dropdown"><a href="./aboutus.html" class="nav-link ">About
+                                            Us</a>
+                                    </li>
+                                    <li class="nav-item dropdown"><a href="./getintouch.html" class="nav-link">GET IN
+                                            TOUCH</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="Navbar__MobileNavigation d-none">
+                                <button class="navbar-toggler" style="border: none;box-shadow: none;" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                                    aria-controls="navbarNavDropdown" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <div class="toggle-menu__lines">
+                                        <span class="toggle-menu__line"></span>
+                                        <span class="toggle-menu__line" style="margin-top: 8px"></span>
+                                        <span class="toggle-menu__line" style="margin-top: 17px"></span>
+                                    </div>
+                                    <div class="d-none times">&times;</div>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="navbarNavDropdown" class="collapse navbar-collapse MobileMenu__Container" style="position:unset">
+                <ul class="MobileMenu__MenuList">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown"
+                            aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1"
+                            style="position: relative !important;">
+                            <li>
+                                <a class="dropdown-item" style="display: flex;" href="./homecare.html">
+                                    <div style="display: flex;">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVDMCAxNS42NyAxNS42NyAwIDM1IDBDNTQuMzMgMCA3MCAxNS42NyA3MCAzNUM3MCA1NC4zMyA1NC4zMyA3MCAzNSA3MEMxNS42NyA3MCAwIDU0LjMzIDAgMzVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDUuMzQzOSA0OS45MjM0QzQ0LjUwMjkgNTMuMDMyNSA0MS44NDMyIDUzLjgwNzkgMzkuMTgzNSA1MS41ODkzTDMwLjA1NDMgNDMuOTYzOUMyOS41MTUyIDQ0LjQwMTkgMjguOTk3NiA0NC44NjE0IDI4LjQ5NDQgNDUuMzQyNUMyNi4wMDU5IDQ3Ljc0MSAyNC4wMDY2IDUwLjU5ODggMjIuNjA3MiA1My43NTc3TDE3LjQ5NjMgNjUuMjQ2QzI1LjMyMTYgNjkuNzU2NCAzNC41OTA1IDcxLjA2NzQgNDMuMzYxNyA2OC45MDQ1QzUyLjEzMyA2Ni43NDE2IDU5LjcyNjMgNjEuMjcyNiA2NC41NTExIDUzLjY0MjhDNTcuOTMwMyA1NC4xNTI0IDUxLjI5NDUgNTIuODY3NCA0NS4zNDM5IDQ5LjkyMzRaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIG9wYWNpdHk9IjAuNSIgZD0iTTU4LjI4MzEgNDAuMDQ0MUM1NC44ODg0IDM4LjUzMzggNTEuMjE2OCAzNy43NDQgNDcuNTAwNiAzNy43MjQ5TDQ1LjQ4NzkgNDkuMjg1QzQ1LjQ0NDggNDkuNDkzMiA0NS40MDE2IDQ5LjY5NDMgNDUuMzUxMyA0OS44ODgyQzUxLjMwNjcgNTIuODQxMSA1Ny45NTEzIDU0LjEyODggNjQuNTgwMSA1My42MTQ3QzY1Ljg3NTUgNTEuNTc5NCA2Ni45NTI1IDQ5LjQxMzMgNjcuNzkzMyA0Ny4xNTI1QzY1LjE5NTcgNDQuMTAyMSA2MS45NDU3IDQxLjY3MjkgNTguMjgzMSA0MC4wNDQxWiIgZmlsbD0iI0ZGQjE2NyIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik02My45NzYxIDE1LjM1MTFDNjEuNDAwMSAxMS41NTE5IDU4LjEwMDIgOC4yOTY3NCA1NC4yNjQ3IDUuNzcxNUM1MC40MjkyIDMuMjQ2MjYgNDYuMTMzMyAxLjUwMDQgNDEuNjIyMiAwLjYzMzYyQzM3LjExMTIgLTAuMjMzMTYxIDMyLjQ3MzUgLTAuMjAzODg5IDI3Ljk3MzggMC43MTk3NjRDMjMuNDc0MSAxLjY0MzQyIDE5LjIwMDYgMy40NDMzNiAxNS4zOTczIDYuMDE2ODFDMTQuNTkyMyA2LjU1NTMzIDEzLjgzMDMgNy4xMjk3NSAxMy4wOTcxIDcuNzI1N0wyMy45MzcxIDI1LjU2MTRMNDUuMDcwOCAxNy44MjgzQzQ4LjU0MjggMTYuNTY0NiA1MC44MjE1IDE4LjQ5NiA1MC4yMjQ4IDIyLjEzNjRMNDguMTYxOCAzNC4xNTYxQzU2LjAxNDEgMzQuMzU0NiA2My40ODQ4IDM3LjU4MTMgNjkuMDA3OSA0My4xNjAxQzcwLjE1ODggMzguNDMwNyA3MC4zMDU2IDMzLjUxMzEgNjkuNDM5IDI4LjcyMzZDNjguNTcyNCAyMy45MzQxIDY2LjcxMTUgMTkuMzc4OSA2My45NzYxIDE1LjM1MTFaIiBmaWxsPSIjRkZCMTY3Ii8+CjxwYXRoIGQ9Ik0zMS43ODY5IDM4LjM4NDhDMjYuMjczNiA0MS42MDIzIDIxLjkxMyA0Ni40NzA0IDE5LjMyMjMgNTIuMzAwMUwxNC40NDE1IDYzLjI1NzFDMTAuMDg4NSA2MC4xMDM4IDYuNTIyMTQgNTUuOTkwMyA0LjAxOTYgNTEuMjM2M0MxLjUxNzA1IDQ2LjQ4MjMgMC4xNDU3MyA0MS4yMTU5IDAuMDEyMjEwNiAzNS44NDY0Qy0wLjEyMTMwOSAzMC40NzY5IDAuOTg2NTc0IDI1LjE0OSAzLjI0OTc1IDIwLjI3NjhDNS41MTI5MiAxNS40MDQ2IDguODcwNDIgMTEuMTE5MyAxMy4wNjEzIDcuNzUzOThMMzAuMzg1MiAzNi4yNTIzQzMwLjgzMDkgMzYuOTc1MSAzMS4yOTgxIDM3LjY4NTkgMzEuNzg2OSAzOC4zODQ4WiIgZmlsbD0iI0ZGQjE2NyIvPgo8L3N2Zz4K"
+                                            alt="">
+                                    </div>
+                                    Home Care AI
+                                </a>
+                            </li>
+                            <li><a style="display: flex;" class="dropdown-item" href="#">
+                                    <div>
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0wIDM1QzAgMTUuNjcgMTUuNjcgMCAzNSAwQzU0LjMzIDAgNzAgMTUuNjcgNzAgMzVDNzAgNTQuMzMgNTQuMzMgNzAgMzUgNzBDMTUuNjcgNzAgMCA1NC4zMyAwIDM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIxLjg4MzMgMjguMDA5NEMyMi4xNTkxIDI3LjQ4MTUgMjIuNDY3NyAyNi45NzE0IDIyLjgwNzIgMjYuNDgyMUwxNC45ODkyIDYuMjkzMzJDMTQuMjE0NSA2LjgxMTg5IDEzLjUwMzggNy4zNTg4OCAxMi43OTMgNy45NDg0OUM4LjExMTkyIDExLjc4NCA0LjUwNzM2IDE2Ljc2ODYgMi4zMzIxMiAyMi40MTQ0QzAuMTU2ODcyIDI4LjA2MDIgLTAuNTE0NTI0IDM0LjE3MzcgMC4zODM2MzggNDAuMTU2N0wxMC41NjEzIDQwLjU4M0MxNC4wMzQ5IDQwLjcyODUgMTcuNTAzNiA0MC4xOTc3IDIwLjc3NDUgMzkuMDIwMUMxOS43MDM5IDM1LjM0NDggMjAuMTAxMyAzMS4zOTc3IDIxLjg4MzMgMjguMDA5NFoiIGZpbGw9IiM2OUNEQTQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNMzcuODQ2NCAyMC4yNjY5QzM4LjMxMTcgMTguNDU4MyAzOC41ODU2IDE2LjYwNTkgMzguNjYzNyAxNC43NDAyQzM4Ljg4ODkgOS41NzYxIDM3LjYxNTMgNC40NTcxMSAzNC45OTYzIC0zLjkyNjQ4ZS0wNUMyNy44MzkzIC0wLjAxNjY4MTYgMjAuODUwOSAyLjE3MTA0IDE0Ljk4MjEgNi4yNjU0NFY2LjMwODA2TDIyLjgwMDIgMjYuNDg5N0MyNC40MzU5IDI0LjEwNzYgMjYuNzI4NCAyMi4yNTE1IDI5LjM5OTQgMjEuMTQ2OEMzMi4wNzA0IDIwLjA0MjEgMzUuMDA0OSAxOS43MzY0IDM3Ljg0NjQgMjAuMjY2OVoiIGZpbGw9IiM2OUNEQTQiLz4KPHBhdGggb3BhY2l0eT0iMC41IiBkPSJNNjIuMDA0MyAxMi43ODcxQzU2LjMwNTkgNS44MzMgNDguMTM5NiAxLjM0ODUxIDM5LjIxMTIgMC4yNzAzMTdDNDIuNDEyNSA2LjgyOTQ2IDQzLjE0NDIgMTQuMzIxNCA0MS4yNzIzIDIxLjM3NTVDNDEuNTEzOSAyMS40ODIgNDEuNzYyNyAyMS41ODE1IDQxLjk4MyAyMS43MDkzQzQ0LjgxMzggMjMuMjE1OCA0Ny4wODM5IDI1LjU5MzUgNDguNDU2OSAyOC40OTA0QzQ5LjgyOTkgMzEuMzg3MiA1MC4yMzI5IDM0LjY0OSA0OS42MDYxIDM3Ljc5MjdDNDguOTc5MyA0MC45MzYzIDQ3LjM1NiA0My43OTQ1IDQ0Ljk3NjggNDUuOTQzOUM0Mi41OTc2IDQ4LjA5MzQgMzkuNTg5IDQ5LjQxOTcgMzYuMzk2NyA0OS43MjY0QzQzLjE0MDYgNTUuNTQ1OCA1MS43NjU4IDU4LjcyNTYgNjAuNjc1MyA1OC42NzcxQzY2LjM5NzkgNTIuNDc0OSA2OS42ODQyIDQ0LjQxNCA2OS45Mjg1IDM1Ljk4MDZDNzAuMTcyNyAyNy41NDcxIDY3LjM1ODQgMTkuMzA5NyA2Mi4wMDQzIDEyLjc4NzFaIiBmaWxsPSIjNjlDREE0Ii8+CjxwYXRoIGQ9Ik0xMC41NDcxIDQ0LjI0MThDMTYuNzkzOCA0NC41MDc4IDIyLjk3MDggNDIuODQzNCAyOC4yMzcyIDM5LjQ3NTJDMzEuNDAxOCA0NS4zNDI5IDM2LjEwNjUgNTAuMjM3NiA0MS44NDU1IDUzLjYzMzJDNDcuNTg0NiA1Ny4wMjg4IDU0LjE0MSA1OC43OTcgNjAuODEwMSA1OC43NDc2QzU5LjcyNSA1OS45MzA4IDU4LjU1NjQgNjEuMDM0NyA1Ny4zMTMzIDYyLjA1MDhDNTIuNzc2NCA2NS43NzU2IDQ3LjM3NDUgNjguMjk5MSA0MS42MDUzIDY5LjM4ODhDMzUuODM2MiA3MC40Nzg2IDI5Ljg4NTUgNzAuMDk5NSAyNC4zMDE1IDY4LjI4NjVDMTguNzE3NSA2Ni40NzM1IDEzLjY3OTggNjMuMjg1IDkuNjUyNzIgNTkuMDE0N0M1LjYyNTY0IDU0Ljc0NDQgMi43Mzg2NyA0OS41Mjk3IDEuMjU3ODQgNDMuODUxMUwxMC41NDcxIDQ0LjI0MThaIiBmaWxsPSIjNjlDREE0Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDAiPgo8cGF0aCBkPSJNMCAzNUMwIDE1LjY3IDE1LjY3IDAgMzUgMEM1NC4zMyAwIDcwIDE1LjY3IDcwIDM1QzcwIDU0LjMzIDU0LjMzIDcwIDM1IDcwQzE1LjY3IDcwIDAgNTQuMzMgMCAzNVoiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
+                                            alt="">
+                                    </div>Agrochemical AI
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infra.html" class="nav-link" id="dropdownUser2">Infra</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./aboutus.html">About Us</a>
+                    </li>
+                    <li><a class="nav-link" href="./getintouch.html">GET IN TOUCH</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="logoSectionBackground" style="padding-top: 5rem;margin-bottom: 10rem;">
+        <div class="logoSectionContent">
+            <h1 class="logoSectionStyledHeader">
+                <div class="header-text"
+                    style="visibility: visible; opacity: 1; transform: translate(0px, 0px);font-family: Montserrat, sans-serif;">
+                    We
+                    work with the most innovative healthcare companies.</div>
+            </h1>
+            <div class="logoSectionLogoContainer" style="visibility: visible;">
+                <span class="logoSectionStyledImage Rally logo shake"
+                    style="opacity: 1; transform: translate3d(4.7985px, -6.3979px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/5105d77c8f9f45a0b8746c7248814e3c/9c94d/Rally.png" alt="">
+                    </div>
+                </span><span class="logoSectionStyledImage Hims logo"
+                    style="opacity: 1; transform: translate3d(3.199px, -7.9974px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/d57dcd438123930d7d691d9776924d7c/9c94d/Hims.png" alt="">
+                    </div>
+                </span><span class="logoSectionStyledImage Khealth logo"
+                    style="opacity: 1; transform: translate3d(-3.199px, -9.5969px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/145ab63d24b09f2f164cca449697fe47/9c94d/Khealth.png"
+                            alt="">
+
+                    </div>
+                </span><span class="logoSectionStyledImage Levels logo"
+                    style="opacity: 1; transform: translate3d(3.199px, 9.5969px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/55ed427cae41c97767b71111dd5720be/450e9/Levels.png" alt="">
+                    </div>
+                </span><span class="logoSectionStyledImage Lifescan logo"
+                    style="opacity: 1; transform: translate3d(-4.7985px, 4.7985px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/b885a10c3401fe9c6602dbfefda409b5/9c94d/Lifescan.png"
+                            alt="">
+                    </div>
+                </span><span class="logoSectionStyledImage Simplehealth logo"
+                    style="opacity: 1; transform: translate3d(4.7985px, 0px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/8942a1dc648fcc9a7119d1cb66581b93/9c94d/Simplehealth.png"
+                            alt="">
+                    </div>
+                </span><span class="logoSectionStyledImage Therapeutics logo"
+                    style="opacity: 1; transform: translate3d(-7.9974px, 7.9974px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/1ee23329df20e0b06efef9f59322a5a4/9c94d/Therapeutics.png"
+                            alt="">
+                    </div>
+                </span>
+                <span class="logoSectionStyledImage oscar logo"
+                    style="opacity: 1; transform: translate3d(-9.5969px, 3.199px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/ec41a35306280898aa5e20a5d9e061b6/450e9/oscar.png" alt="">
+                    </div>
+                </span>
+                <span class="logoSectionStyledImage cerebral logo"
+                    style="opacity: 1; transform: translate3d(-9.5969px, 3.199px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/cf1eb75cbd125725716822ea7ed006da/04c17/Cerebral.png"
+                            alt="">
+                    </div>
+                </span>
+                <span class="logoSectionStyledImage Humana logo"
+                    style="opacity: 1; transform: translate3d(-9.5969px, 3.199px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/b99e7cc9a34615206913d30abad2fd54/9c94d/Humana.png" alt="">
+                    </div>
+                </span>
+                <span class="logoSectionStyledImage GoodRx logo"
+                    style="opacity: 1; transform: translate3d(-9.5969px, 3.199px, 0px);">
+                    <div>
+                        <img src="https://truepill.com/static/06ff94b98f8e84ce7a4b3839547ccf25/9c94d/GoodRx.png" alt="">
+                    </div>
+                </span>
+                <div class="all-logos">
+                    <div>
+                        <img aria-hidden="true" src="./assets/home_care/all-logos.png" alt=""
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: center center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product1 -->
+    <div class="productSection">
+        <div class="productBlueBoxContent">
+            <div style="top:50px;right:-180px;z-index:-1" class="dotsBackgroundContainer">
+                <img src="./assets/home_care/rectangular_dots.svg" alt="">
+            </div>
+            <div class="productTextSection">
+                <p class="productStyledHeading">C<sub>9</sub>H<sub>26</sub>O<sub>3</sub>
+                </p>
+                <h3 class="h31" style="color: white;margin-bottom: 1rem;">D-trans Allethrin Technical (Esbiothrin)</h3>
+                <p class="productStyledText">Chemical Name: (RS)-3-allyl-2-methyl-4-oxocyclopent-2-enyl
+                    (1R,3R)-2,2-dimethyl -3-(2-methylprop-1-enyl)
+                    Cyclopropanecarboxylate
+                </p>
+                <p class="productStyledText">
+                    CAS: 260359-57-5
+                    ( Also, 84030-86- 4 )
+                </p>
+                <p class="productStyledText">
+                    Purity: 93% minimum w/w
+                </p>
+            </div>
+            <div class="productImage1">
+                <div>
+                    <img aria-hidden="true" src="./assets/home_care/WellAtHome.png" alt=""
+                        style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+
+                </div>
+                <div class="cologuard-box">
+                    <div>
+                        <img aria-hidden="true" src="./assets/home_care/cologuardbox.png" alt=""
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="productExplanation">
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Application + Applicability</h2>
+                <div class="mini-explanation-text">A synthetic pyrethroid with fast knock-down
+                    activity against household pest insects. It is used in public health against
+                    mosquitoes, houseflies and cockroaches.It is used in Mosquito coils, Aerosol sprays, Mosquito mats.
+                </div>
+            </div>
+            <div class="mini-explanation-divider"></div>
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Toxicology</h2>
+                <div class="mini-explanation-text">Oral : LD<sub>50</sub> Rat male 432 mg/kg. <br>
+                    Dermal : LD<sub>50</sub> Rabbit male = >2000 mg/kg. <br>
+                    Inhalation : LC<sub>50</sub> = Rat male 2.63 mg/L. <br>
+                    Skin sensitization : Guinea pig , Not sensitizing.</div>
+            </div>
+        </div><button onclick="showPdf('/assets/pdf/SOL MSDS Esbiothrin.pdf')"
+            class="productOverviewButton"><span>MSDS</span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 407.437 407.437">
+                <path d="M386.258 91.567l-182.54 181.945L21.179 91.567 0 112.815 203.718 315.87l203.719-203.055z">
+                </path>
+            </svg></button>
+    </div>
+    <!-- Product2 -->
+    <div class="product2Section" style="margin-top: 500px">
+        <div class="dots-background" style="top: -200px; left: -290px;">
+            <img src="./assets/home_care/dots-background.svg" alt="">
+        </div>
+        <div class="hexagon-background" style="top: -450px; right: -200px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="hexagon-background" style="bottom: 300px; left: -210px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="dots-background" style="bottom: 350px; right: -290px;">
+            <img src="./assets/home_care/dots-background.svg" alt="">
+        </div>
+        <div class="product2BackgroundTop">
+            <div class="product2Columns ">
+                <div class="product2Left">
+                    <p class="molecularformula">C<sub>15</sub>H<sub>12</sub>CL<sub>2</sub>F<sub>4</sub>O<sub>2</sub></p>
+                    <div class="technicalName">
+                        <h3 class="h31" style="margin-bottom: 1rem;">Transfluthrin Technical</h3>
+                    </div>
+                    <p class="chemicalName" style="opacity: 1;margin-bottom: 10px;">
+                        Chemical Name: 2,3,5,6-tetrafluorobenzyl (1R,3S)-3-(2,2-
+                        dichlorovinyl)-2,2-dimethylcyclopropane
+                        carboxylate
+                    </p>
+                    <p class="chemicalName" style="opacity: 1;margin-bottom: 10px;">
+                        CAS: 118712-89-3
+                    </p>
+                    <p class="chemicalName" style="opacity: 1;margin-bottom: 10px;">
+                        Purity: 94% minimum w/w
+                    </p>
+                </div>
+                <div class="product2Right">
+                    <div class="product2RightImages">
+                        <div class="goodrx-back-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone1.png" alt=""
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+
+                        </div>
+                        <div class="goodrx-front-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone2.png" alt=""
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                        <div class="goodrx-vials  " style="position: absolute; overflow: hidden;">
+                            <img aria-hidden="true" src="./assets/home_care/medicine.png" alt=""
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin: auto;max-width: 1350px;">
+        <div class="productExplanation explanation2" style="margin-top: -350px;">
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Application + Applicability</h2>
+                <div class="mini-explanation-text">A synthetic pyrethroid with fast knock-down activity
+                    against household pest insects. It is used in public
+                    health against mosquitoes, houseflies
+                    and cockroaches.It is used in Mosquito Liquid Vaporizers, Mosquito coils,
+                    Aerosol sprays.
+                </div>
+            </div>
+            <div class="mini-explanation-divider"></div>
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Toxicology</h2>
+                <div class="mini-explanation-text">Oral : LD<sub>50</sub> Rat male > 5000 mg/kg bw. <br>
+                    Dermal : LD<sub>50</sub> Rat male > 5000 mg/kg. <br>
+                    Inhalation : LC<sub>50</sub> = Rat male > 513 mg/m<sup>3</sup>. <br>
+                    Skin sensitization : Guinea pig , Not sensitizing</div>
+            </div>
+        </div><button onclick="showPdf('/assets/pdf/SOL MSDS Transfluthrin.pdf')"
+            class="productOverviewButton"><span>MSDS</span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 407.437 407.437">
+                <path d="M386.258 91.567l-182.54 181.945L21.179 91.567 0 112.815 203.718 315.87l203.719-203.055z">
+                </path>
+            </svg></button>
+    </div>
+    <!-- Product3 -->
+    <div class="product3Section">
+        <div class="dots-background" style="top: 100px; left: -290px;"><img
+                src="./assets/home_care/rectangular_dots.svg" alt="" srcset=""></div>
+        <div class="hexagon-background" style="top: 0px; right: -200px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="product3ColoredBackground">
+            <div class="product3Column" style="max-width: 600px;">
+                <p class="molecularformula">C<sub>19</sub>H<sub>26</sub>O<sub>3</sub></p>
+                <div class="technicalName">
+                    <div style="position: relative; overflow: hidden;">
+                        <h3 class="h31" style="margin-bottom:1rem;color: white;">Allethrin Technical</h3>
+                    </div>
+                </div>
+                <p class="chemicalName" style="margin-bottom: 10px; color: white;">Chemical Name:
+                    (RS)-3-allyl-2-methyl-4-oxocyclopent-2-enyl (1R)-
+                    cis, transchrysanthemate</p>
+                <p class="chemicalName" style="margin-bottom: 10px;color: white;">CAS :
+                    584-79-2 (EU : 231937-89-6)</p>
+                <p class="chemicalName" style="margin-bottom: 10px;color: white;">Purity :
+                    0% minimum w/w</p>
+            </div>
+            <div class="product3Column">
+                <pre class="hims-section__Pre-ytsa40-9 kFyXhl"
+                    style="color: rgb(215, 240, 77); background: none;"><code class=""><span class="token punctuation">{</span><div class="code-indent"><div>otc_products<span class="token operator">:</span><span class="token punctuation">[</span></div><div class="code-indent"><span class="token punctuation">{</span><div class="code-indent">item<span class="token operator">:</span><span class="token string drug-name"><span><span>"Vitamin B"</span></span></span><span class="token punctuation">,</span></div><div class="code-indent">quantity<span class="token operator">:</span><span class="token number" id="drug-quantity"><span><span>60</span></span></span></div><span class="token punctuation">}</span></div><div><span class="token punctuation">]</span><span class="token punctuation">,</span></div></div><div class="code-indent"><div>address_to_name<span class="token operator">:</span><span class="token string"><span>"<span><span>Devan Bradtke</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_street1<span class="token operator">:</span><span class="token string"><span>"<span><span>5871 Koss Forks</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_street2<span class="token operator">:</span><span class="token string"><span>"<span><span>2231</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_city<span class="token operator">:</span><span class="token string"><span>"<span><span>South Katelynn</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_state<span class="token operator">:</span><span class="token string"><span>"<span><span>LA</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_zip<span class="token operator">:</span><span class="token string"><span>"<span><span>65437</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_country<span class="token operator">:</span><span class="token string">"US"</span><span class="token punctuation">,</span></div><div>address_to_phone<span class="token operator">:</span><span class="token string"><span>"<span><span>(327) 410-5290</span></span>"</span></span><span class="token punctuation">,</span></div><div>address_to_email<span class="token operator">:</span><span class="token string"><span>""</span></span><span class="token punctuation">,</span></div><div>shipping method<span class="token operator">:</span><span class="token string">usps_priority</span><span class="token punctuation">,</span></div><div>signature_confirmations<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span></div><div>replacement_order<span class="token operator">:</span><span class="token string">"fill_request_cb619ca2e133d37daefc"</span><span class="token punctuation">,</span></div><div>metadata<span class="token operator">:</span><span class="token string">"cfe146"</span><span class="token punctuation">,</span></div><div>notes<span class="token operator">:</span><span class="token string">"Here are some special instructions on how to package this order"</span><span class="token punctuation">,</span></div></div><span class="token punctuation">}</span></code></pre>
+            </div>
+        </div>
+        <div class="hexagon-background" style="bottom: -70px; left: -210px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+    </div>
+    <div style="margin: auto;max-width: 1350px;">
+        <div class="productExplanation">
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Application + Applicability</h2>
+                <div class="mini-explanation-text">A synthetic pyrethroid with fast knock-down activity
+                    against household pest insects. It is used in public
+                    health against mosquitoes, houseflies and
+                    cockroaches.It is used in Mosquito coils, Mosquito mats.
+                </div>
+            </div>
+            <div class="mini-explanation-divider"></div>
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Toxicology</h2>
+                <div class="mini-explanation-text">Oral : LD<sub>50</sub> Rat male 2150 mg/kg . <br>
+                    Dermal : LD<sub>50</sub> Rabbit male 2660 mg/kg . <br>
+                    Inhalation : LC<sub>50</sub> = Rat male > 3875 mg/m<sup>3</sup> . <br>
+                    Skin sensitization : Guinea pig , Not sensitizing .</div>
+            </div>
+        </div><button onclick="showPdf('/assets/pdf/SOL MSDS Allethrin.pdf')"
+            class="productOverviewButton"><span>MSDS</span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 407.437 407.437">
+                <path d="M386.258 91.567l-182.54 181.945L21.179 91.567 0 112.815 203.718 315.87l203.719-203.055z">
+                </path>
+            </svg></button>
+    </div>
+    <!-- Product4 -->
+    <div class="product2Section" style="margin-top: 500px">
+        <div class="dots-background" style="top: -200px; left: -290px;"><img
+                src="./assets/home_care/rectangular_dots.svg" alt="" srcset=""></div>
+        <div class="hexagon-background" style="top: -450px; right: -200px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="hexagon-background" style="bottom: 200px; left: -210px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="dots-background" style="bottom: 350px; right: -290px;">
+            <img src="./assets/home_care/rectangular_dots.svg" alt="">
+        </div>
+        <div class="product2BackgroundTop jJNEke">
+            <div class="product2Columns">
+                <div class="product2Left">
+                    <p class="molecularformula">C<sub>19</sub>H<sub>26</sub>O<sub>3</sub></p>
+                    <div class="technicalName">
+                        <div style="position: relative; overflow: hidden;">
+                            <h3 class="h31" style="color: white;margin-bottom: 10px;">Prallethrin Technical</h3>
+                        </div>
+                    </div>
+                    <p class="chemicalName" style="opacity: 1;color: white;">
+                        Chemical Name :(S)-2-methyl-4-oxo-3-prop-2-ynylcyclopent-2-enyl
+                        (1R)-cis,trans-2,2-dimethyl-3-(2-methylprop-1-enyl)
+                        cyclopropanecarboxylate</p>
+                    <p class="chemicalName" style="opacity: 1;color: white;">
+                        CAS :23031-36-9</p>
+                    <p class="chemicalName" style="opacity: 1;color: white;">
+                        Purity :90% minimum w/w</p>
+                </div>
+                <div class="product2Right">
+                    <div class="product2RightImages">
+                        <div class="goodrx-back-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone1.png" alt=""
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+
+                        </div>
+                        <div class="goodrx-front-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone2.png" alt=""
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                        <div class="goodrx-vials  " style="position: absolute; overflow: hidden;">
+                            <img aria-hidden="true" src="./assets/home_care/medicine.png" alt=""
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin: auto;max-width: 1350px;">
+        <div class="productExplanation explanation3">
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Application + Applicability</h2>
+                <div class="mini-explanation-text">A synthetic pyrethroid with fast knock-down activity
+                    against household pest insects. It is used in public
+                    health against mosquitoes, houseflies and
+                    cockroaches.It is used in Mosquito Liquid vaporisers , Mosquito coils,
+                    Mosquito mats.
+                </div>
+            </div>
+            <div class="mini-explanation-divider"></div>
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Toxicology</h2>
+                <div class="mini-explanation-text">Oral : LD<sub>50</sub> Rat male 640 mg/kg. <br>
+                    Dermal : LD<sub>50</sub> Rabbit male = >5000 mg/kg. <br>
+                    Inhalation : LC<sub>50</sub> = Rat male > 855 mg/m<sup>3</sup>. <br>
+                    Skin sensitization : Guinea pig , Not sensitizing.</div>
+            </div>
+        </div><button onclick="showPdf('/assets/pdf/SOL MSDS Prallethrin.pdf')"
+            class="productOverviewButton"><span>MSDS</span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 407.437 407.437">
+                <path d="M386.258 91.567l-182.54 181.945L21.179 91.567 0 112.815 203.718 315.87l203.719-203.055z">
+                </path>
+            </svg></button>
+    </div>
+    <!-- Product5 -->
+    <div class="product2Section" style="margin-top: 500px">
+        <div class="dots-background__BackgroundContainer-sc-1rk95wp-0 kgZTTm dots-background"
+            style="top: -200px; left: -290px;"><svg width="768" height="289" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 0h3.655v4.734H.001V0zM194.892 0h3.655v4.734h-3.655V0zM0 23.668h3.654v4.734H0v-4.734zM194.893 23.668h3.654v4.734h-3.654v-4.734zM0 47.337h3.654v4.733H0v-4.733zM194.893 47.337h3.654v4.733h-3.654v-4.733zM0 71.004h3.654v4.734H0v-4.734zM194.893 71.004h3.654v4.734h-3.654v-4.734zM0 94.673h3.654v4.733H0v-4.733zM194.893 94.673h3.654v4.733h-3.654v-4.733zM0 118.339h3.654v4.734H0v-4.734zM194.893 118.339h3.654v4.734h-3.654v-4.734zM0 142.009h3.654v4.733H0v-4.733zM194.893 142.009h3.654v4.733h-3.654v-4.733zM0 165.676h3.654v4.733H0v-4.733zM194.893 165.676h3.654v4.733h-3.654v-4.733zM0 189.345h3.654v4.734H0v-4.734zM194.893 189.345h3.654v4.734h-3.654v-4.734zM0 213.012h3.654v4.734H0v-4.734zM194.893 213.012h3.654v4.734h-3.654v-4.734zM0 236.681h3.654v4.733H0v-4.733zM194.893 236.681h3.654v4.733h-3.654v-4.733zM0 260.348h3.654v4.734H0v-4.734zM194.893 260.348h3.654v4.734h-3.654v-4.734zM0 284.016h3.654v4.734H0v-4.734zM194.893 284.016h3.654v4.734h-3.654v-4.734zM19.49 0h3.653v4.734H19.49V0zM214.381 0h3.655v4.734h-3.655V0zM19.489 23.668h3.654v4.734H19.49v-4.734zM214.381 23.668h3.654v4.734h-3.654v-4.734zM19.489 47.337h3.654v4.733H19.49v-4.733zM214.381 47.337h3.654v4.733h-3.654v-4.733zM19.489 71.004h3.654v4.734H19.49v-4.734zM214.381 71.004h3.654v4.734h-3.654v-4.734zM19.489 94.673h3.654v4.733H19.49v-4.733zM214.381 94.673h3.654v4.733h-3.654v-4.733zM19.489 118.339h3.654v4.734H19.49v-4.734zM214.381 118.339h3.654v4.734h-3.654v-4.734zM19.489 142.009h3.654v4.733H19.49v-4.733zM214.381 142.009h3.654v4.733h-3.654v-4.733zM19.489 165.676h3.654v4.733H19.49v-4.733zM214.381 165.676h3.654v4.733h-3.654v-4.733zM19.489 189.345h3.654v4.734H19.49v-4.734zM214.381 189.345h3.654v4.734h-3.654v-4.734zM19.489 213.012h3.654v4.734H19.49v-4.734zM214.381 213.012h3.654v4.734h-3.654v-4.734zM19.489 236.681h3.654v4.733H19.49v-4.733zM214.381 236.681h3.654v4.733h-3.654v-4.733zM19.489 260.348h3.654v4.734H19.49v-4.734zM214.381 260.348h3.654v4.734h-3.654v-4.734zM19.489 284.016h3.654v4.734H19.49v-4.734zM214.381 284.016h3.654v4.734h-3.654v-4.734zM38.978 0h3.655v4.734h-3.655V0zM233.871 0h3.654v4.734h-3.654V0zM38.978 23.668h3.655v4.734h-3.655v-4.734zM233.871 23.668h3.654v4.734h-3.654v-4.734zM38.978 47.337h3.655v4.733h-3.655v-4.733zM233.871 47.337h3.654v4.733h-3.654v-4.733zM38.978 71.004h3.655v4.734h-3.655v-4.734zM233.871 71.004h3.654v4.734h-3.654v-4.734zM38.978 94.673h3.655v4.733h-3.655v-4.733zM233.871 94.673h3.654v4.733h-3.654v-4.733zM38.978 118.339h3.655v4.734h-3.655v-4.734zM233.871 118.339h3.654v4.734h-3.654v-4.734zM38.978 142.009h3.655v4.733h-3.655v-4.733zM233.871 142.009h3.654v4.733h-3.654v-4.733zM38.978 165.676h3.655v4.733h-3.655v-4.733zM233.871 165.676h3.654v4.733h-3.654v-4.733zM38.978 189.345h3.655v4.734h-3.655v-4.734zM233.871 189.345h3.654v4.734h-3.654v-4.734zM38.978 213.012h3.655v4.734h-3.655v-4.734zM233.871 213.012h3.654v4.734h-3.654v-4.734zM38.978 236.681h3.655v4.733h-3.655v-4.733zM233.871 236.681h3.654v4.733h-3.654v-4.733zM38.978 260.348h3.655v4.734h-3.655v-4.734zM233.871 260.348h3.654v4.734h-3.654v-4.734zM38.978 284.016h3.655v4.734h-3.655v-4.734zM233.871 284.016h3.654v4.734h-3.654v-4.734zM58.468 0h3.654v4.734h-3.654V0zM253.36 0h3.654v4.734h-3.654V0zM58.467 23.668h3.655v4.734h-3.655v-4.734zM253.36 23.668h3.654v4.734h-3.654v-4.734zM58.467 47.337h3.655v4.733h-3.655v-4.733zM253.36 47.337h3.654v4.733h-3.654v-4.733zM58.467 71.004h3.655v4.734h-3.655v-4.734zM253.36 71.004h3.654v4.734h-3.654v-4.734zM58.467 94.673h3.655v4.733h-3.655v-4.733zM253.36 94.673h3.654v4.733h-3.654v-4.733zM58.467 118.339h3.655v4.734h-3.655v-4.734zM253.36 118.339h3.654v4.734h-3.654v-4.734zM58.467 142.009h3.655v4.733h-3.655v-4.733zM253.36 142.009h3.654v4.733h-3.654v-4.733zM58.467 165.676h3.655v4.733h-3.655v-4.733zM253.36 165.676h3.654v4.733h-3.654v-4.733zM58.467 189.345h3.655v4.734h-3.655v-4.734zM253.36 189.345h3.654v4.734h-3.654v-4.734zM58.467 213.012h3.655v4.734h-3.655v-4.734zM253.36 213.012h3.654v4.734h-3.654v-4.734zM58.467 236.681h3.655v4.733h-3.655v-4.733zM253.36 236.681h3.654v4.733h-3.654v-4.733zM58.467 260.348h3.655v4.734h-3.655v-4.734zM253.36 260.348h3.654v4.734h-3.654v-4.734zM58.467 284.016h3.655v4.734h-3.655v-4.734zM253.36 284.016h3.654v4.734h-3.654v-4.734zM77.957 0h3.654v4.734h-3.654V0zM272.849 0h3.654v4.734h-3.654V0zM77.957 23.668h3.654v4.734h-3.654v-4.734zM272.849 23.668h3.654v4.734h-3.654v-4.734zM77.957 47.337h3.654v4.733h-3.654v-4.733zM272.849 47.337h3.654v4.733h-3.654v-4.733zM77.957 71.004h3.654v4.734h-3.654v-4.734zM272.849 71.004h3.654v4.734h-3.654v-4.734zM77.957 94.673h3.654v4.733h-3.654v-4.733zM272.849 94.673h3.654v4.733h-3.654v-4.733zM77.957 118.339h3.654v4.734h-3.654v-4.734zM272.849 118.339h3.654v4.734h-3.654v-4.734zM77.957 142.009h3.654v4.733h-3.654v-4.733zM272.849 142.009h3.654v4.733h-3.654v-4.733zM77.957 165.676h3.654v4.733h-3.654v-4.733zM272.849 165.676h3.654v4.733h-3.654v-4.733zM77.957 189.345h3.654v4.734h-3.654v-4.734zM272.849 189.345h3.654v4.734h-3.654v-4.734zM77.957 213.012h3.654v4.734h-3.654v-4.734zM272.849 213.012h3.654v4.734h-3.654v-4.734zM77.957 236.681h3.654v4.733h-3.654v-4.733zM272.849 236.681h3.654v4.733h-3.654v-4.733zM77.957 260.348h3.654v4.734h-3.654v-4.734zM272.849 260.348h3.654v4.734h-3.654v-4.734zM77.957 284.016h3.654v4.734h-3.654v-4.734zM272.849 284.016h3.654v4.734h-3.654v-4.734zM97.446 0h3.655v4.734h-3.655V0zM292.339 0h3.654v4.734h-3.654V0zM97.446 23.668h3.655v4.734h-3.655v-4.734zM292.339 23.668h3.654v4.734h-3.654v-4.734zM97.446 47.337h3.655v4.733h-3.655v-4.733zM292.339 47.337h3.654v4.733h-3.654v-4.733zM97.446 71.004h3.655v4.734h-3.655v-4.734zM292.339 71.004h3.654v4.734h-3.654v-4.734zM97.446 94.673h3.655v4.733h-3.655v-4.733zM292.339 94.673h3.654v4.733h-3.654v-4.733zM97.446 118.339h3.655v4.734h-3.655v-4.734zM292.339 118.339h3.654v4.734h-3.654v-4.734zM97.446 142.009h3.655v4.733h-3.655v-4.733zM292.339 142.009h3.654v4.733h-3.654v-4.733zM97.446 165.676h3.655v4.733h-3.655v-4.733zM292.339 165.676h3.654v4.733h-3.654v-4.733zM97.446 189.345h3.655v4.734h-3.655v-4.734zM292.339 189.345h3.654v4.734h-3.654v-4.734zM97.446 213.012h3.655v4.734h-3.655v-4.734zM292.339 213.012h3.654v4.734h-3.654v-4.734zM97.446 236.681h3.655v4.733h-3.655v-4.733zM292.339 236.681h3.654v4.733h-3.654v-4.733zM97.446 260.348h3.655v4.734h-3.655v-4.734zM292.339 260.348h3.654v4.734h-3.654v-4.734zM97.446 284.016h3.655v4.734h-3.655v-4.734zM292.339 284.016h3.654v4.734h-3.654v-4.734zM116.935 0h3.654v4.734h-3.654V0zM311.828 0h3.654v4.734h-3.654V0zM116.935 23.668h3.654v4.734h-3.654v-4.734zM311.828 23.668h3.654v4.734h-3.654v-4.734zM116.935 47.337h3.654v4.733h-3.654v-4.733zM311.828 47.337h3.654v4.733h-3.654v-4.733zM116.935 71.004h3.654v4.734h-3.654v-4.734zM311.828 71.004h3.654v4.734h-3.654v-4.734zM116.935 94.673h3.654v4.733h-3.654v-4.733zM311.828 94.673h3.654v4.733h-3.654v-4.733zM116.935 118.339h3.654v4.734h-3.654v-4.734zM311.828 118.339h3.654v4.734h-3.654v-4.734zM116.935 142.009h3.654v4.733h-3.654v-4.733zM311.828 142.009h3.654v4.733h-3.654v-4.733zM116.935 165.676h3.654v4.733h-3.654v-4.733zM311.828 165.676h3.654v4.733h-3.654v-4.733zM116.935 189.345h3.654v4.734h-3.654v-4.734zM311.828 189.345h3.654v4.734h-3.654v-4.734zM116.935 213.012h3.654v4.734h-3.654v-4.734zM311.828 213.012h3.654v4.734h-3.654v-4.734zM116.935 236.681h3.654v4.733h-3.654v-4.733zM311.828 236.681h3.654v4.733h-3.654v-4.733zM116.935 260.348h3.654v4.734h-3.654v-4.734zM311.828 260.348h3.654v4.734h-3.654v-4.734zM116.935 284.016h3.654v4.734h-3.654v-4.734zM311.828 284.016h3.654v4.734h-3.654v-4.734zM136.424 0h3.654v4.734h-3.654V0zM331.316 0h3.654v4.734h-3.654V0zM136.424 23.668h3.654v4.734h-3.654v-4.734zM331.316 23.668h3.654v4.734h-3.654v-4.734zM136.424 47.337h3.654v4.733h-3.654v-4.733zM331.316 47.337h3.654v4.733h-3.654v-4.733zM136.424 71.004h3.654v4.734h-3.654v-4.734zM331.316 71.004h3.654v4.734h-3.654v-4.734zM136.424 94.673h3.654v4.733h-3.654v-4.733zM331.316 94.673h3.654v4.733h-3.654v-4.733zM136.424 118.339h3.654v4.734h-3.654v-4.734zM331.316 118.339h3.654v4.734h-3.654v-4.734zM136.424 142.009h3.654v4.733h-3.654v-4.733zM331.316 142.009h3.654v4.733h-3.654v-4.733zM136.424 165.676h3.654v4.733h-3.654v-4.733zM331.316 165.676h3.654v4.733h-3.654v-4.733zM136.424 189.345h3.654v4.734h-3.654v-4.734zM331.316 189.345h3.654v4.734h-3.654v-4.734zM136.424 213.012h3.654v4.734h-3.654v-4.734zM331.316 213.012h3.654v4.734h-3.654v-4.734zM136.424 236.681h3.654v4.733h-3.654v-4.733zM331.316 236.681h3.654v4.733h-3.654v-4.733zM136.424 260.348h3.654v4.734h-3.654v-4.734zM331.316 260.348h3.654v4.734h-3.654v-4.734zM136.424 284.016h3.654v4.734h-3.654v-4.734zM331.316 284.016h3.654v4.734h-3.654v-4.734zM155.914 0h3.654v4.734h-3.654V0zM350.805 0h3.654v4.734h-3.654V0zM155.914 23.668h3.654v4.734h-3.654v-4.734zM350.805 23.668h3.654v4.734h-3.654v-4.734zM155.914 47.337h3.654v4.733h-3.654v-4.733zM350.805 47.337h3.654v4.733h-3.654v-4.733zM155.914 71.004h3.654v4.734h-3.654v-4.734zM350.805 71.004h3.654v4.734h-3.654v-4.734zM155.914 94.673h3.654v4.733h-3.654v-4.733zM350.805 94.673h3.654v4.733h-3.654v-4.733zM155.914 118.339h3.654v4.734h-3.654v-4.734zM350.805 118.339h3.654v4.734h-3.654v-4.734zM155.914 142.009h3.654v4.733h-3.654v-4.733zM350.805 142.009h3.654v4.733h-3.654v-4.733zM155.914 165.676h3.654v4.733h-3.654v-4.733zM350.805 165.676h3.654v4.733h-3.654v-4.733zM155.914 189.345h3.654v4.734h-3.654v-4.734zM350.805 189.345h3.654v4.734h-3.654v-4.734zM155.914 213.012h3.654v4.734h-3.654v-4.734zM350.805 213.012h3.654v4.734h-3.654v-4.734zM155.914 236.681h3.654v4.733h-3.654v-4.733zM350.805 236.681h3.654v4.733h-3.654v-4.733zM155.914 260.348h3.654v4.734h-3.654v-4.734zM350.805 260.348h3.654v4.734h-3.654v-4.734zM155.914 284.016h3.654v4.734h-3.654v-4.734zM350.805 284.016h3.654v4.734h-3.654v-4.734zM175.403 0h3.654v4.734h-3.654V0zM370.295 0h3.654v4.734h-3.654V0zM175.403 23.668h3.654v4.734h-3.654v-4.734zM370.295 23.668h3.654v4.734h-3.654v-4.734zM175.403 47.337h3.654v4.733h-3.654v-4.733zM370.295 47.337h3.654v4.733h-3.654v-4.733zM175.403 71.004h3.654v4.734h-3.654v-4.734zM370.295 71.004h3.654v4.734h-3.654v-4.734zM175.403 94.673h3.654v4.733h-3.654v-4.733zM370.295 94.673h3.654v4.733h-3.654v-4.733zM175.403 118.339h3.654v4.734h-3.654v-4.734zM370.295 118.339h3.654v4.734h-3.654v-4.734zM175.403 142.009h3.654v4.733h-3.654v-4.733zM370.295 142.009h3.654v4.733h-3.654v-4.733zM175.403 165.676h3.654v4.733h-3.654v-4.733zM370.295 165.676h3.654v4.733h-3.654v-4.733zM175.403 189.345h3.654v4.734h-3.654v-4.734zM370.295 189.345h3.654v4.734h-3.654v-4.734zM175.403 213.012h3.654v4.734h-3.654v-4.734zM370.295 213.012h3.654v4.734h-3.654v-4.734zM175.403 236.681h3.654v4.733h-3.654v-4.733zM370.295 236.681h3.654v4.733h-3.654v-4.733zM175.403 260.348h3.654v4.734h-3.654v-4.734zM370.295 260.348h3.654v4.734h-3.654v-4.734zM175.403 284.016h3.654v4.734h-3.654v-4.734zM370.295 284.016h3.654v4.734h-3.654v-4.734zM387.572 0h3.716v4.734h-3.716V0zM585.72 0h3.716v4.734h-3.716V0zM387.572 23.668h3.715v4.734h-3.715v-4.734zM585.72 23.668h3.716v4.734h-3.716v-4.734zM387.572 47.337h3.715v4.733h-3.715v-4.733zM585.72 47.337h3.716v4.733h-3.716v-4.733zM387.572 71.004h3.715v4.734h-3.715v-4.734zM585.72 71.004h3.716v4.734h-3.716v-4.734zM387.572 94.673h3.715v4.733h-3.715v-4.733zM585.72 94.673h3.716v4.733h-3.716v-4.733zM387.572 118.339h3.715v4.734h-3.715v-4.734zM585.72 118.339h3.716v4.734h-3.716v-4.734zM387.572 142.009h3.715v4.733h-3.715v-4.733zM585.72 142.009h3.716v4.733h-3.716v-4.733zM387.572 165.676h3.715v4.733h-3.715v-4.733zM585.72 165.676h3.716v4.733h-3.716v-4.733zM387.572 189.345h3.715v4.734h-3.715v-4.734zM585.72 189.345h3.716v4.734h-3.716v-4.734zM387.572 213.012h3.715v4.734h-3.715v-4.734zM585.72 213.012h3.716v4.734h-3.716v-4.734zM387.572 236.681h3.715v4.733h-3.715v-4.733zM585.72 236.681h3.716v4.733h-3.716v-4.733zM387.572 260.348h3.715v4.734h-3.715v-4.734zM585.72 260.348h3.716v4.734h-3.716v-4.734zM387.572 284.016h3.715v4.734h-3.715v-4.734zM585.72 284.016h3.716v4.734h-3.716v-4.734zM407.386 0h3.716v4.734h-3.716V0zM605.535 0h3.715v4.734h-3.715V0zM407.387 23.668h3.715v4.734h-3.715v-4.734zM605.535 23.668h3.715v4.734h-3.715v-4.734zM407.387 47.337h3.715v4.733h-3.715v-4.733zM605.535 47.337h3.715v4.733h-3.715v-4.733zM407.387 71.004h3.715v4.734h-3.715v-4.734zM605.535 71.004h3.715v4.734h-3.715v-4.734zM407.387 94.673h3.715v4.733h-3.715v-4.733zM605.535 94.673h3.715v4.733h-3.715v-4.733zM407.387 118.339h3.715v4.734h-3.715v-4.734zM605.535 118.339h3.715v4.734h-3.715v-4.734zM407.387 142.009h3.715v4.733h-3.715v-4.733zM605.535 142.009h3.715v4.733h-3.715v-4.733zM407.387 165.676h3.715v4.733h-3.715v-4.733zM605.535 165.676h3.715v4.733h-3.715v-4.733zM407.387 189.345h3.715v4.734h-3.715v-4.734zM605.535 189.345h3.715v4.734h-3.715v-4.734zM407.387 213.012h3.715v4.734h-3.715v-4.734zM605.535 213.012h3.715v4.734h-3.715v-4.734zM407.387 236.681h3.715v4.733h-3.715v-4.733zM605.535 236.681h3.715v4.733h-3.715v-4.733zM407.387 260.348h3.715v4.734h-3.715v-4.734zM605.535 260.348h3.715v4.734h-3.715v-4.734zM407.387 284.016h3.715v4.734h-3.715v-4.734zM605.535 284.016h3.715v4.734h-3.715v-4.734zM427.201 0h3.716v4.734h-3.716V0zM625.35 0h3.716v4.734h-3.716V0zM427.201 23.668h3.716v4.734h-3.716v-4.734zM625.35 23.668h3.715v4.734h-3.715v-4.734zM427.201 47.337h3.716v4.733h-3.716v-4.733zM625.35 47.337h3.715v4.733h-3.715v-4.733zM427.201 71.004h3.716v4.734h-3.716v-4.734zM625.35 71.004h3.715v4.734h-3.715v-4.734zM427.201 94.673h3.716v4.733h-3.716v-4.733zM625.35 94.673h3.715v4.733h-3.715v-4.733zM427.201 118.339h3.716v4.734h-3.716v-4.734zM625.35 118.339h3.715v4.734h-3.715v-4.734zM427.201 142.009h3.716v4.733h-3.716v-4.733zM625.35 142.009h3.715v4.733h-3.715v-4.733zM427.201 165.676h3.716v4.733h-3.716v-4.733zM625.35 165.676h3.715v4.733h-3.715v-4.733zM427.201 189.345h3.716v4.734h-3.716v-4.734zM625.35 189.345h3.715v4.734h-3.715v-4.734zM427.201 213.012h3.716v4.734h-3.716v-4.734zM625.35 213.012h3.715v4.734h-3.715v-4.734zM427.201 236.681h3.716v4.733h-3.716v-4.733zM625.35 236.681h3.715v4.733h-3.715v-4.733zM427.201 260.348h3.716v4.734h-3.716v-4.734zM625.35 260.348h3.715v4.734h-3.715v-4.734zM427.201 284.016h3.716v4.734h-3.716v-4.734zM625.35 284.016h3.715v4.734h-3.715v-4.734zM447.016 0h3.715v4.734h-3.715V0zM645.165 0h3.715v4.734h-3.715V0zM447.016 23.668h3.715v4.734h-3.715v-4.734zM645.165 23.668h3.715v4.734h-3.715v-4.734zM447.016 47.337h3.715v4.733h-3.715v-4.733zM645.165 47.337h3.715v4.733h-3.715v-4.733zM447.016 71.004h3.715v4.734h-3.715v-4.734zM645.165 71.004h3.715v4.734h-3.715v-4.734zM447.016 94.673h3.715v4.733h-3.715v-4.733zM645.165 94.673h3.715v4.733h-3.715v-4.733zM447.016 118.339h3.715v4.734h-3.715v-4.734zM645.165 118.339h3.715v4.734h-3.715v-4.734zM447.016 142.009h3.715v4.733h-3.715v-4.733zM645.165 142.009h3.715v4.733h-3.715v-4.733zM447.016 165.676h3.715v4.733h-3.715v-4.733zM645.165 165.676h3.715v4.733h-3.715v-4.733zM447.016 189.345h3.715v4.734h-3.715v-4.734zM645.165 189.345h3.715v4.734h-3.715v-4.734zM447.016 213.012h3.715v4.734h-3.715v-4.734zM645.165 213.012h3.715v4.734h-3.715v-4.734zM447.016 236.681h3.715v4.733h-3.715v-4.733zM645.165 236.681h3.715v4.733h-3.715v-4.733zM447.016 260.348h3.715v4.734h-3.715v-4.734zM645.165 260.348h3.715v4.734h-3.715v-4.734zM447.016 284.016h3.715v4.734h-3.715v-4.734zM645.165 284.016h3.715v4.734h-3.715v-4.734zM466.831 0h3.716v4.734h-3.716V0zM664.979 0h3.716v4.734h-3.716V0zM466.832 23.668h3.715v4.734h-3.715v-4.734zM664.98 23.668h3.715v4.734h-3.715v-4.734zM466.832 47.337h3.715v4.733h-3.715v-4.733zM664.98 47.337h3.715v4.733h-3.715v-4.733zM466.832 71.004h3.715v4.734h-3.715v-4.734zM664.98 71.004h3.715v4.734h-3.715v-4.734zM466.832 94.673h3.715v4.733h-3.715v-4.733zM664.98 94.673h3.715v4.733h-3.715v-4.733zM466.832 118.339h3.715v4.734h-3.715v-4.734zM664.98 118.339h3.715v4.734h-3.715v-4.734zM466.832 142.009h3.715v4.733h-3.715v-4.733zM664.98 142.009h3.715v4.733h-3.715v-4.733zM466.832 165.676h3.715v4.733h-3.715v-4.733zM664.98 165.676h3.715v4.733h-3.715v-4.733zM466.832 189.345h3.715v4.734h-3.715v-4.734zM664.98 189.345h3.715v4.734h-3.715v-4.734zM466.832 213.012h3.715v4.734h-3.715v-4.734zM664.98 213.012h3.715v4.734h-3.715v-4.734zM466.832 236.681h3.715v4.733h-3.715v-4.733zM664.98 236.681h3.715v4.733h-3.715v-4.733zM466.832 260.348h3.715v4.734h-3.715v-4.734zM664.98 260.348h3.715v4.734h-3.715v-4.734zM466.832 284.016h3.715v4.734h-3.715v-4.734zM664.98 284.016h3.715v4.734h-3.715v-4.734zM486.646 0h3.715v4.734h-3.715V0zM684.795 0h3.716v4.734h-3.716V0zM486.646 23.668h3.715v4.734h-3.715v-4.734zM684.795 23.668h3.716v4.734h-3.716v-4.734zM486.646 47.337h3.715v4.733h-3.715v-4.733zM684.795 47.337h3.716v4.733h-3.716v-4.733zM486.646 71.004h3.715v4.734h-3.715v-4.734zM684.795 71.004h3.716v4.734h-3.716v-4.734zM486.646 94.673h3.715v4.733h-3.715v-4.733zM684.795 94.673h3.716v4.733h-3.716v-4.733zM486.646 118.339h3.715v4.734h-3.715v-4.734zM684.795 118.339h3.716v4.734h-3.716v-4.734zM486.646 142.009h3.715v4.733h-3.715v-4.733zM684.795 142.009h3.716v4.733h-3.716v-4.733zM486.646 165.676h3.715v4.733h-3.715v-4.733zM684.795 165.676h3.716v4.733h-3.716v-4.733zM486.646 189.345h3.715v4.734h-3.715v-4.734zM684.795 189.345h3.716v4.734h-3.716v-4.734zM486.646 213.012h3.715v4.734h-3.715v-4.734zM684.795 213.012h3.716v4.734h-3.716v-4.734zM486.646 236.681h3.715v4.733h-3.715v-4.733zM684.795 236.681h3.716v4.733h-3.716v-4.733zM486.646 260.348h3.715v4.734h-3.715v-4.734zM684.795 260.348h3.716v4.734h-3.716v-4.734zM486.646 284.016h3.715v4.734h-3.715v-4.734zM684.795 284.016h3.716v4.734h-3.716v-4.734zM506.46 0h3.716v4.734h-3.716V0zM704.61 0h3.715v4.734h-3.715V0zM506.46 23.668h3.716v4.734h-3.716v-4.734zM704.61 23.668h3.715v4.734h-3.715v-4.734zM506.46 47.337h3.716v4.733h-3.716v-4.733zM704.61 47.337h3.715v4.733h-3.715v-4.733zM506.46 71.004h3.716v4.734h-3.716v-4.734zM704.61 71.004h3.715v4.734h-3.715v-4.734zM506.46 94.673h3.716v4.733h-3.716v-4.733zM704.61 94.673h3.715v4.733h-3.715v-4.733zM506.46 118.339h3.716v4.734h-3.716v-4.734zM704.61 118.339h3.715v4.734h-3.715v-4.734zM506.46 142.009h3.716v4.733h-3.716v-4.733zM704.61 142.009h3.715v4.733h-3.715v-4.733zM506.46 165.676h3.716v4.733h-3.716v-4.733zM704.61 165.676h3.715v4.733h-3.715v-4.733zM506.46 189.345h3.716v4.734h-3.716v-4.734zM704.61 189.345h3.715v4.734h-3.715v-4.734zM506.46 213.012h3.716v4.734h-3.716v-4.734zM704.61 213.012h3.715v4.734h-3.715v-4.734zM506.46 236.681h3.716v4.733h-3.716v-4.733zM704.61 236.681h3.715v4.733h-3.715v-4.733zM506.46 260.348h3.716v4.734h-3.716v-4.734zM704.61 260.348h3.715v4.734h-3.715v-4.734zM506.46 284.016h3.716v4.734h-3.716v-4.734zM704.61 284.016h3.715v4.734h-3.715v-4.734zM526.275 0h3.716v4.734h-3.716V0zM724.425 0h3.715v4.734h-3.715V0zM526.275 23.668h3.715v4.734h-3.715v-4.734zM724.425 23.668h3.715v4.734h-3.715v-4.734zM526.275 47.337h3.715v4.733h-3.715v-4.733zM724.425 47.337h3.715v4.733h-3.715v-4.733zM526.275 71.004h3.715v4.734h-3.715v-4.734zM724.425 71.004h3.715v4.734h-3.715v-4.734zM526.275 94.673h3.715v4.733h-3.715v-4.733zM724.425 94.673h3.715v4.733h-3.715v-4.733zM526.275 118.339h3.715v4.734h-3.715v-4.734zM724.425 118.339h3.715v4.734h-3.715v-4.734zM526.275 142.009h3.715v4.733h-3.715v-4.733zM724.425 142.009h3.715v4.733h-3.715v-4.733zM526.275 165.676h3.715v4.733h-3.715v-4.733zM724.425 165.676h3.715v4.733h-3.715v-4.733zM526.275 189.345h3.715v4.734h-3.715v-4.734zM724.425 189.345h3.715v4.734h-3.715v-4.734zM526.275 213.012h3.715v4.734h-3.715v-4.734zM724.425 213.012h3.715v4.734h-3.715v-4.734zM526.275 236.681h3.715v4.733h-3.715v-4.733zM724.425 236.681h3.715v4.733h-3.715v-4.733zM526.275 260.348h3.715v4.734h-3.715v-4.734zM724.425 260.348h3.715v4.734h-3.715v-4.734zM526.275 284.016h3.715v4.734h-3.715v-4.734zM724.425 284.016h3.715v4.734h-3.715v-4.734zM546.09 0h3.716v4.734h-3.716V0zM744.239 0h3.715v4.734h-3.715V0zM546.091 23.668h3.715v4.734h-3.715v-4.734zM744.239 23.668h3.716v4.734h-3.716v-4.734zM546.091 47.337h3.715v4.733h-3.715v-4.733zM744.239 47.337h3.716v4.733h-3.716v-4.733zM546.091 71.004h3.715v4.734h-3.715v-4.734zM744.239 71.004h3.716v4.734h-3.716v-4.734zM546.091 94.673h3.715v4.733h-3.715v-4.733zM744.239 94.673h3.716v4.733h-3.716v-4.733zM546.091 118.339h3.715v4.734h-3.715v-4.734zM744.239 118.339h3.716v4.734h-3.716v-4.734zM546.091 142.009h3.715v4.733h-3.715v-4.733zM744.239 142.009h3.716v4.733h-3.716v-4.733zM546.091 165.676h3.715v4.733h-3.715v-4.733zM744.239 165.676h3.716v4.733h-3.716v-4.733zM546.091 189.345h3.715v4.734h-3.715v-4.734zM744.239 189.345h3.716v4.734h-3.716v-4.734zM546.091 213.012h3.715v4.734h-3.715v-4.734zM744.239 213.012h3.716v4.734h-3.716v-4.734zM546.091 236.681h3.715v4.733h-3.715v-4.733zM744.239 236.681h3.716v4.733h-3.716v-4.733zM546.091 260.348h3.715v4.734h-3.715v-4.734zM744.239 260.348h3.716v4.734h-3.716v-4.734zM546.091 284.016h3.715v4.734h-3.715v-4.734zM744.239 284.016h3.716v4.734h-3.716v-4.734zM565.905 0h3.716v4.734h-3.716V0zM764.053 0h3.715v4.734h-3.715V0zM565.905 23.668h3.716v4.734h-3.716v-4.734zM764.053 23.668h3.715v4.734h-3.715v-4.734zM565.905 47.337h3.716v4.733h-3.716v-4.733zM764.053 47.337h3.715v4.733h-3.715v-4.733zM565.905 71.004h3.716v4.734h-3.716v-4.734zM764.053 71.004h3.715v4.734h-3.715v-4.734zM565.905 94.673h3.716v4.733h-3.716v-4.733zM764.053 94.673h3.715v4.733h-3.715v-4.733zM565.905 118.339h3.716v4.734h-3.716v-4.734zM764.053 118.339h3.715v4.734h-3.715v-4.734zM565.905 142.009h3.716v4.733h-3.716v-4.733zM764.053 142.009h3.715v4.733h-3.715v-4.733zM565.905 165.676h3.716v4.733h-3.716v-4.733zM764.053 165.676h3.715v4.733h-3.715v-4.733zM565.905 189.345h3.716v4.734h-3.716v-4.734zM764.053 189.345h3.715v4.734h-3.715v-4.734zM565.905 213.012h3.716v4.734h-3.716v-4.734zM764.053 213.012h3.715v4.734h-3.715v-4.734zM565.905 236.681h3.716v4.733h-3.716v-4.733zM764.053 236.681h3.715v4.733h-3.715v-4.733zM565.905 260.348h3.716v4.734h-3.716v-4.734zM764.053 260.348h3.715v4.734h-3.715v-4.734zM565.905 284.016h3.716v4.734h-3.716v-4.734zM764.053 284.016h3.715v4.734h-3.715v-4.734z"
+                    fill="#133FB3"></path>
+            </svg></div>
+        <div class="hexagon-background" style="top: -450px; right: -200px; z-index: 2;">
+            <img src="./assets/home_care/hexagons.svg" alt="" srcset="">
+        </div>
+        <div class="hexagon-background" style="bottom: 200px; left: -210px; z-index: 2;"><img
+                src="./assets/home_care/hexagons.svg" alt="" srcset=""></div>
+        <div class="dots-background" style="bottom: 350px; right: -290px;">
+            <img src="./assets/home_care/rectangular_dots.svg" alt="">
+        </div>
+        <div class="product2BackgroundTop orangebg">
+            <div class="product2Columns">
+                <div class="product2Left ">
+                    <p class="molecularformula">API <span>|</span> Pharmacy Fulfillment</p>
+                    <div class="technicalName">
+                        <div class="  " style="position: relative; overflow: hidden;"><img aria-hidden="true"
+                                src="./assets/home_care/gauss-logo.png" alt=""
+                                style="width: 100%; height: 100%; object-fit: contain; object-position: center center; opacity: 1;">
+                        </div>
+                    </div>
+                    <p class="chemicalName" style="opacity: 1;color: white;">
+                        GoodRx relies on Truepill as their agile,
+                        collaborative pharmacy partner, powering their GoodRx Gold offering. Truepill’s tech-enabled
+                        pharmacy capabilities provide nationwide prescription delivery, coupled with the extensive
+                        manpower and infrastructure required to fulfill high volumes of prescription transfers. The
+                        inclusion of branded materials further enhances the GoodRx Gold customer experience.</p>
+                </div>
+                <div class="product2Right">
+                    <div class="product2RightImages">
+                        <div class="goodrx-back-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone1.png" alt="not found"
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+
+                        </div>
+                        <div class="goodrx-front-phone  "
+                            style="position: absolute; overflow: hidden; opacity: 1; transform: translate(0px, 0px);">
+                            <img aria-hidden="true" src="./assets/home_care/phone2.png" alt="not found"
+                                style="width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                        <div class="goodrx-vials  " style="position: absolute; overflow: hidden;">
+                            <img aria-hidden="true" src="./assets/home_care/medicine.png" alt=""
+                                style=" width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin: auto;max-width: 1350px;">
+        <div class="productExplanation explanation3">
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Application + Applicability</h2>
+                <div class="mini-explanation-text">A synthetic pyrethroid with fast knock-down
+                    activity against household pest insects. It is used in public health against
+                    mosquitoes, houseflies and cockroaches.It is used in Mosquito coils, Aerosol sprays, Mosquito mats.
+                </div>
+            </div>
+            <div class="mini-explanation-divider"></div>
+            <div class="productMiniExplanation">
+                <h2 class="mini-explanation-title h21">Toxicology</h2>
+                <div class="mini-explanation-text">Oral : LD<sub>50</sub> Rat male 432 mg/kg. <br>
+                    Dermal : LD<sub>50</sub> Rabbit male = >2000 mg/kg. <br>
+                    Inhalation : LC<sub>50</sub> = Rat male 2.63 mg/L. <br>
+                    Skin sensitization : Guinea pig , Not sensitizing.</div>
+            </div>
+        </div><button onclick="showPdf('/assets/pdf/SOL MSDS Esbiothrin.pdf')"
+            class="productOverviewButton"><span>MSDS</span><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 407.437 407.437">
+                <path d="M386.258 91.567l-182.54 181.945L21.179 91.567 0 112.815 203.718 315.87l203.719-203.055z">
+                </path>
+            </svg></button>
+    </div>
+    <div>
+        <div class="ResponsivePaddingContainer ThreeCardBlockMainContainer">
+            <div class="ThreeCardTextWrapper">
+                <h2 class="h21">We are certified & registered
+                    under following ISO:</h2>
+                <p><strong>ISO 14001: 2015 <br>
+                        ISO 9001: 2015 <br>
+                        ISO 45001: 2018</p>
+            </div>
+            <div class="ThreeCardCardContainer">
+                <div>
+                    <article class="Card__StyledArticle1">
+                        <img src="./assets/svg/product/api.svg" alt="">
+                        <div class="IconCard__TextButtonSpacer-i3g5b4-1 hPUVbB">
+                            <div>
+                                <h4 class="h41">Industry-first APIs</h4>
+                                <p>Deliver medications to your patients using powerful programmatic APIs that give you
+                                    full control.</p>
+                            </div>
+                        </div>
+                        <img src="./assets/svg/product/bubble.svg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <article class="Card__StyledArticle1">
+                        <img src="./assets/svg/product/box.svg" alt="">
+                        <div class="IconCard__TextButtonSpacer-i3g5b4-1 hPUVbB">
+                            <div>
+                                <h4 class="h41">Flexible and scalable</h4>
+                                <p>Our pharmacies support daily order volumes of up to 100,000 prescriptions - all while
+                                    maintaining your brand guidelines.</p>
+                            </div>
+                        </div>
+                        <img src="./assets/svg/product/bubble.svg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <article class="Card__StyledArticle1">
+                        <img src="./assets/svg/product/lock.svg" alt="">
+                        <div>
+                            <div>
+                                <h4 class="h41">Customer confidentiality</h4>
+                                <p>As a platform company, we’re driven by our commitment to confidentiality and the
+                                    privacy of your patients.</p>
+                            </div>
+                        </div>
+                        <img src="./assets/svg/product/bubble.svg" alt="">
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="ResponsivePaddingContainer desktopContainer">
+            <div class="FooterDesktopMain__Container">
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Solutions</h4><a href="/health-brands">Health
+                            brands</a><a href="/pharma-manufacturers">Pharma manufacturers</a><a
+                            href="/health-plans">Health
+                            plans</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Company</h4><a href="./aboutus.html">About
+                            Shogun</a><a href="./getintouch.html">Careers</a><a href="#">Insights</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Business</h4> <a href="#">Contact sales</a><a
+                            href="mailto: press@shogun.com">Media inquires</a>
+                    </div>
+                </div>
+                <div class="FooterDesktopMain__ColumnContainer">
+                    <div class="DesktopSectionContainer">
+                        <h4 class="FooterDesktopMain__Header">Social</h4>
+                        <div class="FooterDesktopMain__LogoLinkContainer">
+                            <div><img
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC4xIDAuMzk5OTAyQzQuNzk4IDAuMzk5OTAyIDAuNSA0LjY5NzkgMC41IDkuOTk5OUMwLjUgMTUuMzAxOSA0Ljc5OCAxOS41OTk5IDEwLjEgMTkuNTk5OUMxNS40MDIgMTkuNTk5OSAxOS43IDE1LjMwMTkgMTkuNyA5Ljk5OTlDMTkuNyA0LjY5NzkgMTUuNDAyIDAuMzk5OTAyIDEwLjEgMC4zOTk5MDJaTTE0LjAwNSA4LjI2MzlDMTQuMDA5IDguMzQ1OSAxNC4wMSA4LjQyNzkgMTQuMDEgOC41MDc5QzE0LjAxIDExLjAwNzkgMTIuMTA5IDEzLjg4ODkgOC42MzEgMTMuODg4OUM3LjYwMzI5IDEzLjg5MDYgNi41OTY5NyAxMy41OTU0IDUuNzMzIDEzLjAzODlDNS44OCAxMy4wNTY5IDYuMDMxIDEzLjA2MzkgNi4xODQgMTMuMDYzOUM3LjA3IDEzLjA2MzkgNy44ODUgMTIuNzYyOSA4LjUzMiAxMi4yNTQ5QzguMTM3NzIgMTIuMjQ3MiA3Ljc1NTY3IDEyLjExNjYgNy40MzkxMSAxMS44ODE0QzcuMTIyNTUgMTEuNjQ2MiA2Ljg4NzI1IDExLjMxODIgNi43NjYgMTAuOTQyOUM3LjA0OTE2IDEwLjk5NjcgNy4zNDA4NSAxMC45ODU1IDcuNjE5IDEwLjkwOTlDNy4xOTEwNSAxMC44MjM0IDYuODA2MiAxMC41OTE1IDYuNTI5NzEgMTAuMjUzNkM2LjI1MzIyIDkuOTE1NjYgNi4xMDIxMSA5LjQ5MjUyIDYuMTAyIDkuMDU1OVY5LjAzMjlDNi4zNTcgOS4xNzM5IDYuNjQ5IDkuMjU5OSA2Ljk1OSA5LjI2OTlDNi41NTc4IDkuMDAyODMgNi4yNzM3OSA4LjU5MjU3IDYuMTY1MDQgOC4xMjMwM0M2LjA1NjMgNy42NTM1IDYuMTMxMDUgNy4xNjAxNSA2LjM3NCA2Ljc0MzlDNi44NDg5NiA3LjMyNzkgNy40NDEyNiA3LjgwNTY1IDguMTEyNTcgOC4xNDYyMUM4Ljc4Mzg4IDguNDg2NzggOS41MTkyMiA4LjY4MjU2IDEwLjI3MSA4LjcyMDlDMTAuMTc1NCA4LjMxNTIxIDEwLjIxNjYgNy44ODkzMSAxMC4zODggNy41MDk0MUMxMC41NTk1IDcuMTI5NTEgMTAuODUxNiA2LjgxNjg5IDExLjIxOTEgNi42MjAxN0MxMS41ODY1IDYuNDIzNDQgMTIuMDA4NyA2LjM1MzYzIDEyLjQxOTkgNi40MjE1N0MxMi44MzExIDYuNDg5NTIgMTMuMjA4NCA2LjY5MTQzIDEzLjQ5MyA2Ljk5NTlDMTMuOTE2MiA2LjkxMjE4IDE0LjMyMiA2Ljc1Njk2IDE0LjY5MyA2LjUzNjlDMTQuNTUyIDYuOTc1MDQgMTQuMjU2NyA3LjM0NzA4IDEzLjg2MiA3LjU4MzlDMTQuMjM2OCA3LjUzODc1IDE0LjYwMjkgNy40Mzc5OCAxNC45NDggNy4yODQ5QzE0LjY5NDUgNy42NjQ4IDE0LjM3NTEgNy45OTYzNCAxNC4wMDUgOC4yNjM5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                    alt=""><a href="https://twitter.com/shogun_rx?lang=en" rel="noreferrer noopener"
+                                    target="_blank">Twitter</a></div>
+                        </div>
+                        <div class="FooterDesktopMain__LogoLinkContainer">
+                            <div><img
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC41MDA0IDAuMzk5OTAyQzUuMTk4MzkgMC4zOTk5MDIgMC45MDAzOTEgNC42OTc5IDAuOTAwMzkxIDkuOTk5OUMwLjkwMDM5MSAxNS4zMDE5IDUuMTk4MzkgMTkuNTk5OSAxMC41MDA0IDE5LjU5OTlDMTUuODAyNCAxOS41OTk5IDIwLjEwMDQgMTUuMzAxOSAyMC4xMDA0IDkuOTk5OUMyMC4xMDA0IDQuNjk3OSAxNS44MDI0IDAuMzk5OTAyIDEwLjUwMDQgMC4zOTk5MDJaTTguMTUwMzkgMTMuOTc4OUg2LjIwNjM5VjcuNzIyOUg4LjE1MDM5VjEzLjk3ODlaTTcuMTY2MzkgNi45NTQ5QzYuNTUyMzkgNi45NTQ5IDYuMTU1MzkgNi41MTk5IDYuMTU1MzkgNS45ODE5QzYuMTU1MzkgNS40MzI5IDYuNTY0MzkgNS4wMTA5IDcuMTkxMzkgNS4wMTA5QzcuODE4MzkgNS4wMTA5IDguMjAyMzkgNS40MzI5IDguMjE0MzkgNS45ODE5QzguMjE0MzkgNi41MTk5IDcuODE4MzkgNi45NTQ5IDcuMTY2MzkgNi45NTQ5Wk0xNS4yNTA0IDEzLjk3ODlIMTMuMzA2NFYxMC41MTE5QzEzLjMwNjQgOS43MDQ5IDEzLjAyNDQgOS4xNTY5IDEyLjMyMTQgOS4xNTY5QzExLjc4NDQgOS4xNTY5IDExLjQ2NTQgOS41Mjc5IDExLjMyNDQgOS44ODQ5QzExLjI3MjQgMTAuMDExOSAxMS4yNTk0IDEwLjE5MTkgMTEuMjU5NCAxMC4zNzA5VjEzLjk3NzlIOS4zMTQzOVY5LjcxNzlDOS4zMTQzOSA4LjkzNjkgOS4yODkzOSA4LjI4MzkgOS4yNjMzOSA3LjcyMTlIMTAuOTUyNEwxMS4wNDE0IDguNTkwOUgxMS4wODA0QzExLjMzNjQgOC4xODI5IDExLjk2MzQgNy41ODA5IDEzLjAxMjQgNy41ODA5QzE0LjI5MTQgNy41ODA5IDE1LjI1MDQgOC40Mzc5IDE1LjI1MDQgMTAuMjc5OVYxMy45Nzg5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                    alt=""><a href="https://www.linkedin.com/company/shogun" rel="noreferrer noopener"
+                                    target="_blank">LinkedIn</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="FooterDesktop__CopyrightContainer"><a aria-current="page" class="" href="./index.html">
+                    <div style="position:relative;overflow:hidden;display:inline-block;width:85px;height:33px"><img
+                            src="./assets/Shogun_logo.png" alt="Shogun logo - link to homepage"
+                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: contain; object-position: center center;">
+                    </div>
+                </a>
+                <small id="copyright" class="copyrightDesktop">&#169;Shogun Organics
+                    2021
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Rights Reserved.
+                </small>
+            </div>
+        </div>
+
+        <div class="mobileContainer accordion" id="accordion">
+            <div id="headingOne">
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-controls="collapseOne">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Solutions</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton">
+                    </div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="#">Health brands</a></li>
+                            <li><a href="#">Pharma manufacturers</a></li>
+                            <li><a href="#">Health plans</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingTwo">
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Company</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="./aboutus.html">About Shogun</a></li>
+                            <li><a href="./getintouch.html">Careers</a></li>
+                            <li><a href="#">Insights</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingThree">
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-controls="collapseThree">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Business</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li><a href="./index.html">Contact sales</a></li>
+                            <li><a href="mailto: press@shogun.com">Media inquires</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="headingFour">
+                <button class="ExpandableContentWrapper" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-controls="collapseFour">
+                    <div class="ExpandableHeaderContent">
+                        <h4 class="FooterMobile__Header">Social</h4>
+                    </div>
+                    <div class="ExpandableButtonContainer"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik00LjE5NjI5IDUuNjc5NjlMMC4wMDAyNzQxNzcgMC4xNzk2OTJMOC4zOTI1OCAwLjE3OTY5MUw0LjE5NjI5IDUuNjc5NjlaIiBmaWxsPSIjM0ZCRkQyIi8+Cjwvc3ZnPgo="
+                            alt="" class="ExpandableContentButton"></div>
+                </button>
+                <div class="FooterMobile__Divider"></div>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                    <div class="accordion-body">
+                        <div class="FooterMobile__List">
+                            <li>
+                                <div class="FooterMobile__LogoLinkContainer">
+                                    <div><img style="margin-right: 0.5rem;"
+                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC4xIDAuMzk5OTAyQzQuNzk4IDAuMzk5OTAyIDAuNSA0LjY5NzkgMC41IDkuOTk5OUMwLjUgMTUuMzAxOSA0Ljc5OCAxOS41OTk5IDEwLjEgMTkuNTk5OUMxNS40MDIgMTkuNTk5OSAxOS43IDE1LjMwMTkgMTkuNyA5Ljk5OTlDMTkuNyA0LjY5NzkgMTUuNDAyIDAuMzk5OTAyIDEwLjEgMC4zOTk5MDJaTTE0LjAwNSA4LjI2MzlDMTQuMDA5IDguMzQ1OSAxNC4wMSA4LjQyNzkgMTQuMDEgOC41MDc5QzE0LjAxIDExLjAwNzkgMTIuMTA5IDEzLjg4ODkgOC42MzEgMTMuODg4OUM3LjYwMzI5IDEzLjg5MDYgNi41OTY5NyAxMy41OTU0IDUuNzMzIDEzLjAzODlDNS44OCAxMy4wNTY5IDYuMDMxIDEzLjA2MzkgNi4xODQgMTMuMDYzOUM3LjA3IDEzLjA2MzkgNy44ODUgMTIuNzYyOSA4LjUzMiAxMi4yNTQ5QzguMTM3NzIgMTIuMjQ3MiA3Ljc1NTY3IDEyLjExNjYgNy40MzkxMSAxMS44ODE0QzcuMTIyNTUgMTEuNjQ2MiA2Ljg4NzI1IDExLjMxODIgNi43NjYgMTAuOTQyOUM3LjA0OTE2IDEwLjk5NjcgNy4zNDA4NSAxMC45ODU1IDcuNjE5IDEwLjkwOTlDNy4xOTEwNSAxMC44MjM0IDYuODA2MiAxMC41OTE1IDYuNTI5NzEgMTAuMjUzNkM2LjI1MzIyIDkuOTE1NjYgNi4xMDIxMSA5LjQ5MjUyIDYuMTAyIDkuMDU1OVY5LjAzMjlDNi4zNTcgOS4xNzM5IDYuNjQ5IDkuMjU5OSA2Ljk1OSA5LjI2OTlDNi41NTc4IDkuMDAyODMgNi4yNzM3OSA4LjU5MjU3IDYuMTY1MDQgOC4xMjMwM0M2LjA1NjMgNy42NTM1IDYuMTMxMDUgNy4xNjAxNSA2LjM3NCA2Ljc0MzlDNi44NDg5NiA3LjMyNzkgNy40NDEyNiA3LjgwNTY1IDguMTEyNTcgOC4xNDYyMUM4Ljc4Mzg4IDguNDg2NzggOS41MTkyMiA4LjY4MjU2IDEwLjI3MSA4LjcyMDlDMTAuMTc1NCA4LjMxNTIxIDEwLjIxNjYgNy44ODkzMSAxMC4zODggNy41MDk0MUMxMC41NTk1IDcuMTI5NTEgMTAuODUxNiA2LjgxNjg5IDExLjIxOTEgNi42MjAxN0MxMS41ODY1IDYuNDIzNDQgMTIuMDA4NyA2LjM1MzYzIDEyLjQxOTkgNi40MjE1N0MxMi44MzExIDYuNDg5NTIgMTMuMjA4NCA2LjY5MTQzIDEzLjQ5MyA2Ljk5NTlDMTMuOTE2MiA2LjkxMjE4IDE0LjMyMiA2Ljc1Njk2IDE0LjY5MyA2LjUzNjlDMTQuNTUyIDYuOTc1MDQgMTQuMjU2NyA3LjM0NzA4IDEzLjg2MiA3LjU4MzlDMTQuMjM2OCA3LjUzODc1IDE0LjYwMjkgNy40Mzc5OCAxNC45NDggNy4yODQ5QzE0LjY5NDUgNy42NjQ4IDE0LjM3NTEgNy45OTYzNCAxNC4wMDUgOC4yNjM5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                            alt=""><a href="https://twitter.com/shogun_rx?lang=en"
+                                            target="_blank">Twitter</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="FooterMobile__LogoLinkContainer">
+                                    <div><img style="margin-right: 0.5rem;"
+                                            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwKSI+CjxwYXRoIGQ9Ik0xMC41MDA0IDAuMzk5OTAyQzUuMTk4MzkgMC4zOTk5MDIgMC45MDAzOTEgNC42OTc5IDAuOTAwMzkxIDkuOTk5OUMwLjkwMDM5MSAxNS4zMDE5IDUuMTk4MzkgMTkuNTk5OSAxMC41MDA0IDE5LjU5OTlDMTUuODAyNCAxOS41OTk5IDIwLjEwMDQgMTUuMzAxOSAyMC4xMDA0IDkuOTk5OUMyMC4xMDA0IDQuNjk3OSAxNS44MDI0IDAuMzk5OTAyIDEwLjUwMDQgMC4zOTk5MDJaTTguMTUwMzkgMTMuOTc4OUg2LjIwNjM5VjcuNzIyOUg4LjE1MDM5VjEzLjk3ODlaTTcuMTY2MzkgNi45NTQ5QzYuNTUyMzkgNi45NTQ5IDYuMTU1MzkgNi41MTk5IDYuMTU1MzkgNS45ODE5QzYuMTU1MzkgNS40MzI5IDYuNTY0MzkgNS4wMTA5IDcuMTkxMzkgNS4wMTA5QzcuODE4MzkgNS4wMTA5IDguMjAyMzkgNS40MzI5IDguMjE0MzkgNS45ODE5QzguMjE0MzkgNi41MTk5IDcuODE4MzkgNi45NTQ5IDcuMTY2MzkgNi45NTQ5Wk0xNS4yNTA0IDEzLjk3ODlIMTMuMzA2NFYxMC41MTE5QzEzLjMwNjQgOS43MDQ5IDEzLjAyNDQgOS4xNTY5IDEyLjMyMTQgOS4xNTY5QzExLjc4NDQgOS4xNTY5IDExLjQ2NTQgOS41Mjc5IDExLjMyNDQgOS44ODQ5QzExLjI3MjQgMTAuMDExOSAxMS4yNTk0IDEwLjE5MTkgMTEuMjU5NCAxMC4zNzA5VjEzLjk3NzlIOS4zMTQzOVY5LjcxNzlDOS4zMTQzOSA4LjkzNjkgOS4yODkzOSA4LjI4MzkgOS4yNjMzOSA3LjcyMTlIMTAuOTUyNEwxMS4wNDE0IDguNTkwOUgxMS4wODA0QzExLjMzNjQgOC4xODI5IDExLjk2MzQgNy41ODA5IDEzLjAxMjQgNy41ODA5QzE0LjI5MTQgNy41ODA5IDE1LjI1MDQgOC40Mzc5IDE1LjI1MDQgMTAuMjc5OVYxMy45Nzg5WiIgZmlsbD0iI0VERjFGMyIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo="
+                                            alt=""><a href="https://www.linkedin.com/company/shogun"
+                                            target="_blank">LinkedIn</a></div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrightMobile">
+            <a aria-current="page" class="" href="./index.html">
+                <div style="position:relative;overflow:hidden;display:inline-block;width:85px;height:33px"><img
+                        src="./assets/Shogun_logo.png" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </a>
+            <div id="copyright2">© Shogun
+                <!-- -->2021<br>All Rights Reserved.
+            </div>
+        </div>
+        <div class="dataBitsBlock">
+            <img src="https://truepill.com/static/footer-data-bits.3d1c6793.svg" alt="not found">
+        </div>
+    </footer>
+    <!-- <script src="./common/importCommons.js"></script> -->
+    <script src="./script/script.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/products.css">
+    <script src="./script/form.js"></script>
+    <script src="./pdf/pdf.js"></script>
+</body>
+
+</html>

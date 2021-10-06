@@ -1,0 +1,988 @@
+.HeroBannergroundImage {
+    background-position: center top;
+    background-size: 150%;
+}
+.about_image{
+    width: 100%; 
+    height: 100%;
+     object-fit: cover;
+      object-position: center center;
+       opacity: 1;
+}
+@media (min-width: 720px){
+    .HeroBannergroundImage {
+        height: 750px;
+}
+}
+@media (min-width: 992px){
+    .HeroBannergroundImage {
+    height: 1000px;
+}
+}
+@media (min-width: 1180px){
+.HeroBannergroundImage {
+    height: 1000px;
+}
+}
+@media (min-width: 1300px){
+    .HeroBannergroundImage {
+        height: 1100px;
+}
+}
+.HeroBanner__Container {
+    margin:0px;
+    margin-top: 5rem;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    
+}
+@media (min-width: 1180px){
+.HeroBanner__Container {
+    margin-top: 0px;
+    padding-top: 8rem;
+}
+}
+
+
+.HeroBanner__StyledCircleImage {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 728px;
+    min-height: 328px;
+    -webkit-box-align: center;
+    align-items: center;
+    background-size: contain;
+}
+.HeroBanner__StyledCircleImage:before,
+.HeroBanner__StyledCircleImage:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.HeroBanner__StyledCircleImage:before {
+    z-index: -100;
+    background-image: url('../assets/about_us/circle.png');
+    opacity: 1;
+}
+.HeroBanner__StyledCircleImage:after {
+    z-index: -101;
+    background-image: url('../assets/about_us/circle.png');
+    opacity: 1;
+}
+@media screen and (min-width: 720px){
+    .HeroBanner__StyledCircleImage {
+        top: 10rem;
+}
+}
+@media screen and (min-width: 1180px){
+    .HeroBanner__StyledCircleImage {
+        top: 0px;
+}
+}
+@media (min-width: 992px){
+.HeroBanner__StyledCircleImage {
+    height: 728px;
+}
+}
+
+.HeroBanner__StyledCircleImage h1 {
+    font-size: 2.2rem;
+    color: rgb(3, 77, 131);
+    font-weight: 600;
+}
+.HeroBanner__StyledCircleImage h1, .HeroBanner__StyledCircleImage span {
+    position: relative;
+    display: block;
+    width: 100%;
+    line-height: 1.2;
+    text-align: center;
+    top: -8px;
+}
+@media (min-width: 992px){
+    .HeroBanner__StyledCircleImage h1 {
+        font-size: 6.5rem;
+}
+}
+@media (min-width: 992px){
+    .HeroBanner__StyledCircleImage h1, .HeroBanner__StyledCircleImage span {
+        line-height: 1.2;
+}
+}    
+@media (min-width: 1180px){
+.HeroBanner__StyledCircleImage h1 {
+    font-size: 6.8rem;
+}
+}
+ .HeroBanner__StyledCircleImage span {
+    font-size: 3rem;
+}
+@media (max-width:992px) {
+    .HeroBanner__StyledCircleImage span {
+        font-size: 1.4rem;
+    }
+}
+@media (min-width: 992px){
+    .HeroBanner__StyledCircleImage h1, .HeroBanner__StyledCircleImage span {
+        line-height: 1.2;
+}
+}
+.HeroBanner__StyledCircleImage span:nth-child(1) {
+        left: 0px;
+}
+
+
+.HeroImageWithContentContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 1680px;
+    margin: 0px auto;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+}
+@media screen and (min-width: 720px){
+    .HeroImageWithContentContainer {
+        padding-top: 0px;
+        display: flex;
+        -webkit-box-align: center;
+        place-items: center left;
+}
+}
+ 
+@media (min-width: 992px){
+    .HeroImageWithContentContainer {
+        margin-bottom: 1rem;
+        flex-direction: row;
+}
+}
+.HeroImageWithContentContainer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-bottom: -10rem;
+}
+@media (min-width: 600px){
+    .HeroImageWithContentContainer {
+        margin-bottom: -13rem;
+}
+}
+@media (min-width: 720px){
+.HeroImageWithContentContainer {
+    margin-bottom: -15rem;
+}
+}
+
+
+.HeroImageWithContentContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 1680px;
+    margin: 0px auto;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+}
+@media screen and (min-width: 720px){
+    .HeroImageWithContentContainer {
+        display: flex;
+        -webkit-box-align: center;
+        place-items: center left;
+}
+}
+@media (min-width: 992px){
+    .HeroImageWithContentContainer {
+        margin-bottom: 1rem;
+        flex-direction: row;
+}
+}
+.MissionBgColor {
+    padding-top: 12rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+139.83deg
+, rgb(63, 191, 210) 0%, rgb(5, 76, 126) 100%), rgb(255, 255, 255);
+}
+@media (min-width: 992px){
+.MissionBgColor {
+    padding-top: 6rem;
+}
+}
+.MissionColumn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1052px;
+    padding-bottom: 10rem;
+    text-align: center;
+}
+
+.MissionColumn h2 {
+    margin-bottom: 2.5rem;
+}
+.MissionColumn h2, .MissionColumn p {
+    width: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.jHyZqF {
+    width: 100%;
+    max-width: 1680px;
+    margin: 0px auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+@media screen and (min-width: 720px){
+.jHyZqF {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+}
+@media screen and (min-width: 1180px){
+.jHyZqF {
+    padding-left: 9.125rem;
+    padding-right: 9.125rem;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+}
+.MissionContentWrapper {
+    position: relative;
+    display: flex;
+    z-index: 3;
+    width: 100%;
+    max-height: 110px;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+@media (min-width: 720px){
+    .MissionContentWrapper {
+        max-height: 235px;
+}
+}
+@media (min-width: 992px){
+.MissionContentWrapper {
+    max-height: 300px;
+}
+}
+
+
+.MissionContentColumn {
+    display: flex;
+    flex-wrap: wrap;
+    /* max-width: 728px; */
+    width: 300px;
+    height: 300px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: rgb(50 50 93 / 16%) 0px 45.7835px 91.567px, rgb(5 76 126 / 20%) 0px 54px 104px inset;
+    place-content: center;
+    -webkit-box-pack: center;
+}
+@media (min-width: 340px){
+.MissionContentColumn {
+    width: 328px;
+    height: 328px;
+}}
+@media (min-width: 540px){
+    .MissionContentColumn {
+        width: 428px;
+        height: 428px;
+    }}
+@media (min-width: 720px){
+.MissionContentColumn {
+    width: 628px;
+    height: 628px;
+}
+}    
+@media (min-width: 992px){
+.MissionContentColumn {
+    width: 828px;
+    height: 828px;
+}
+}
+
+.MissionContentColumn p {
+    width: 100%;
+    max-width: 229px;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: rgb(3, 77, 131);
+}
+@media (min-width: 300px){
+    .MissionContentColumn p {
+        font-size: .6rem;
+}
+}
+@media (min-width: 340px){
+    .MissionContentColumn p {
+        font-size: .7rem;
+}
+}
+@media (max-width:720px) {
+    .bgdots{
+    display: none;
+    }
+}
+@media (min-width: 720px){
+    .MissionContentWrapper p {
+    max-width: 329px;
+    font-size: 1.3rem;
+}}        
+@media (min-width: 992px){
+.MissionContentWrapper p {
+    max-width: 429px;
+    font-size: 1.4rem;
+}
+}
+.EmpoweringOurPartners {
+    display: flex;
+    background: rgb(239, 243, 244);
+    flex-wrap: wrap;
+    justify-items: center;
+    padding: 4rem 0px 2rem;
+}
+@media screen and (min-width: 1180px)
+{
+.EmpoweringOurPartners {
+    padding: 4rem 0px 5rem;
+}
+}
+
+
+.EmpoweringOurPartners__Heading {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 0px;
+    width: 100%;
+}
+.EmpoweringOurPartners__CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 0px 4rem;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+@media screen and (min-width: 1180px)
+{
+.EmpoweringOurPartners__CardContainer {
+    padding: 2rem 0px;
+}
+}
+.EmpoweringOurPartners__Card {
+    margin-right: 0px;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+}
+@media (min-width: 720px)
+{
+.EmpoweringOurPartners__Card {
+    margin: 0px 1.9rem 1.9rem 0px;
+}
+}
+@media screen and (min-width: 1180px)
+{
+.EmpoweringOurPartners__Card {
+    max-width: 200px;
+}
+}
+@media (min-width: 480px)
+{
+.EmpoweringOurPartners__Card:nth-child(2n+1) {
+    margin-right: 1.9rem;
+}
+}
+.EmpoweringOurPartners__Card {
+    width: fit-content;
+    border: 1px solid rgb(248, 248, 248);
+    box-shadow: rgb(50 50 93 / 22%) 0px 13px 27px;
+    border-radius: 16px;
+    background-color: white;
+    padding: 1rem;
+}
+.EmpoweringOurPartners__Information {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+}
+@media screen and (min-width: 992px)
+{
+.EmpoweringOurPartners__Information p {
+    max-width: 60%;
+}
+}
+
+.EmpoweringOurPartners__Information p {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+
+.HeroImageWithContent__Container {
+    display: flex;
+    max-width: 1680px;
+    margin: 0px auto;
+    flex-direction: column-reverse;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+}
+@media screen and (min-width: 720px)
+{
+.HeroImageWithContent__Container {
+    display: flex;
+    -webkit-box-align: center;
+    place-items: center left;
+    padding-bottom: 3rem;
+}
+}
+@media screen and (min-width: 1180px)
+{
+.HeroImageWithContent__Container {
+    padding-top: 13rem;
+}
+}
+@media (min-width: 992px)
+{
+.HeroImageWithContent__Container {
+    margin-bottom: 1rem;
+    flex-direction: row;
+}
+}
+@media screen and (min-width: 720px)
+{
+.HeroImageWithContent__Container {
+    padding-bottom: 4rem;
+    padding-top: 20rem;
+}
+}
+@media screen and (min-width: 992px)
+{
+.HeroImageWithContent__Container {
+    padding-top: 20rem;
+    padding-bottom: 4rem;
+    flex-direction: row-reverse;
+}
+}
+@media screen and (min-width: 1180px)
+{
+.HeroImageWithContent__Container {
+    padding-right: 4.5rem;
+    padding-top: 4rem;
+}
+}
+
+.HeroImageWithContentContainer2 {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-top: -10rem;
+}
+@media (min-width: 600px){
+    .HeroImageWithContentContainer2 {
+        margin-top: -10rem;
+}
+}
+@media (min-width: 720px){
+    .HeroImageWithContentContainer2 {
+        margin-top: -15rem;
+}
+}
+@media (min-width: 1024px){
+    .HeroImageWithContentContainer2 {
+        margin-top: -15rem;
+}
+}
+@media (min-width: 1180px)
+{
+.HeroImageWithContentContainer2 {
+    margin-top: -13rem;
+}
+}
+
+
+.HeroImageWithContentImageSizeContainer {
+    position: relative;
+    width: 400px;
+    padding-bottom: 4rem;
+    left: -4rem;
+}
+@media screen and (min-width: 375px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 500px;
+}}
+@media screen and (min-width: 450px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 750px;
+}
+}
+@media screen and (min-width: 720px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 850px;
+        left: 6rem;
+        margin: 0px;
+}
+}
+@media screen and (min-width: 850px){
+    .HeroImageWithContentImageSizeContainer {
+        left: 10rem;
+        margin: 0px;
+}
+}
+@media screen and (min-width: 992px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 780px;
+        left: 1rem;
+        margin: 0px;
+}
+}
+@media screen and (min-width: 1180px)
+{
+.HeroImageWithContentImageSizeContainer {
+    width: 900px;
+    left: 0rem;
+    margin: 0px;
+}
+}
+@media screen and (min-width: 375px){
+    .HeroImageWithContentImageSizeContainer {
+        left: -5rem;
+        width: 480px;
+}
+}
+@media screen and (min-width: 425px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 550px;
+        left: -8rem;
+}
+}
+@media screen and (min-width: 650px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 650px;
+        left: -8rem;
+        padding-bottom: 6rem;
+}}
+@media screen and (min-width: 700px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 750px;
+        left: -8rem;
+        padding-bottom: 6rem;
+}
+}
+@media screen and (min-width: 992px){
+    .HeroImageWithContentImageSizeContainer {
+        width: 750px;
+        left: -18rem;
+}
+}
+@media screen and (min-width: 1180px){
+.HeroImageWithContentImageSizeContainer {
+    width: 850px;
+    left: -18rem;
+    padding-bottom: 0rem;
+}
+}
+
+
+
+
+.HeroImageWithContentColumn {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+@media screen and (min-width: 980px){
+.HeroImageWithContentColumn {
+    max-width: 35rem;
+}
+}
+@media screen and (min-width: 1180px){
+.HeroImageWithContentColumn {
+    max-width: 70rem;
+}
+}
+@media screen and (min-width: 980px){
+.HeroImageWithContentColumn {
+    max-width: 45rem;
+}
+}
+
+.HeroImageWithContentColumn p, .HeroImageWithContentColumn span {
+    margin-bottom: 1rem;
+}
+.HeroImageWithContentColumn button {
+    margin-top: 2rem;
+}
+
+
+.whiteBox{
+    width: 100%;
+    height: clamp(150px, 60vw, 55rem);
+}
+@media (min-width: 637px){
+    .whiteBox {
+        height: clamp(150px, 50vw, 20rem);
+}
+}
+@media (min-width: 720px){
+    .whiteBox {
+        height: clamp(150px, 60vw, 20rem);
+}
+}
+@media (min-width: 1180px){
+.whiteBox {
+    height: clamp(150px, 25vw, 35rem);
+}
+}
+.TextSliderSection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.TextSliderHeadingContainer {
+    margin: 5rem 0px 4rem;
+    width: 100%;
+}
+@media (min-width: 992px){
+.TextSliderHeadingContainer {
+    margin: 14rem 0px 9rem;
+}
+}
+.TextSliderHeadingContainer h2, .TextSliderHeadingContainer p {
+    width: 100%;
+    text-align: center;
+}
+
+.TextSliderContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: max-content;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+@media (min-width: 992px){
+.TextSliderContainer {
+    flex-wrap: nowrap;
+}
+}
+.TextSliderSectionColumn {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* max-width: 520px; */
+    overflow-x: hidden;
+}
+.TextSliderSectionImageContainer {
+    margin-top: -6rem;
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+}
+.TextStyledSlider {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 0px;
+}
+.get_image{
+    width: 100%;
+     height: 100%;
+      object-fit: cover; 
+    object-position: center center; 
+    opacity: 1;
+}
+.dhTOCp {
+    display: block;
+    list-style: none;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+.TextSliderArrowControl {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+    left: 0px;
+    bottom: 140px;
+}
+.textSliderCardContainer {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
+.TextSliderSectionArrowControl2 {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+    left: 100px;
+    bottom: 140px;
+}
+
+
+.meetButton p {
+    margin-bottom: 0px;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+}
+.meetButton {
+    margin-bottom: 2.5rem;
+    display: block;
+    width: 100%;
+    max-width: 203px;
+    background-color: rgb(3, 77, 131);
+    padding: 10px;
+    border-radius: 50px;
+}
+.TextSliderArrowControl {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+    left: 0px;
+    bottom: 140px;
+}
+.TextSliderArrowControl button {
+    padding: 15px;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: rgb(63, 191, 210);
+    box-shadow: rgb(50 50 93 / 22%) 0px 3px 4px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.5s ease-in-out 0s;
+}
+.TextSliderSectionArrowControl2 {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+    left: 100px;
+    bottom: 140px;
+}
+.TextSliderSectionArrowControl2 button {
+    padding: 15px;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: rgb(63, 191, 210);
+    box-shadow: rgb(50 50 93 / 22%) 0px 3px 4px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.5s ease-in-out 0s;
+}
+
+
+.TextSliderContentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 300px;
+    height: calc(400px + 2.5rem);
+    align-content: flex-start;
+}
+@media (min-width: 992px){
+.TextSliderContentContainer {
+    max-width: 500px;
+    height: calc(400px + 2.5rem);
+    padding-right: 2rem;
+}
+}
+
+.TextSliderSectionArrowControl2 img {
+    transform: rotate(
+180deg
+);
+}
+
+.jRolzl {
+    width: 100%;
+    max-width: 1680px;
+    padding-left: 1.5rem;
+    padding-right: 0px;
+}
+@media screen and (min-width: 720px){
+    .jRolzl {
+        padding-left: 2.5rem;
+        padding-right: 0px;
+    }
+    }
+    
+@media screen and (min-width: 1180px){
+.jRolzl {
+    padding-left: 9.125rem;
+    padding-right: 0px;
+}
+}
+.slides {
+    display: none;
+    white-space: normal;
+}
+@keyframes myfirst {
+    0%   {left: 800px; top: 0px;}
+    25%  {left: 0px; top: 0px;}
+  }
+  
+.slides {
+    flex-direction: row-reverse;
+    position: relative;
+    animation: myfirst 2s;
+    animation-direction:alternate;
+}
+ @media screen and (max-width:720px) {
+    .slides {
+        flex-direction: column;
+        
+    }
+    
+}
+@media screen and (max-width:980px) {
+/* .TextSliderArrowControl,.TextSliderSectionArrowControl2{
+    bottom: 80px !important;
+} */
+.TextSliderSectionImageContainer{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+}
+
+.HeroBannergroundImage:before,
+.HeroBannergroundImage:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position-x: center;
+
+}
+
+.HeroBannergroundImage:before {
+    z-index: -100;
+    background-image: url('../assets/about_us/company-hero-banner.png');
+    opacity: 0;
+}
+
+.HeroBannergroundImage:after {
+    z-index: -101;
+    background-image: url('../assets/about_us/company-hero-banner.png');
+    opacity: 1;
+}
+.EmpoweringOurPartners__Card div{
+    position:relative;
+    overflow:hidden;
+    display:inline-block;
+    width:215px;
+    height:97px
+}  
+.EmpoweringOurPartners__Card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 1;
+}
+.HeroBannergroundImage:before,
+.HeroBannergroundImage:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.HeroBannergroundImage:before {
+    z-index: -100;
+    background-image: url('../assets/about_us/company-hero-banner.png');
+    opacity: 0;
+}
+.HeroBannergroundImage:after {
+    z-index: -101;
+    background-image: url('../assets/about_us/company-hero-banner.png');
+
+    opacity: 1;
+}
+
+@media screen and (max-width:720px) {
+    .TextSliderArrowControl,.TextSliderSectionArrowControl2{
+        bottom: 50px !important;
+    }
+}
+@media screen and (min-width:992px) {
+    .TextSliderArrowControl,.TextSliderSectionArrowControl2{
+        bottom: 50px !important;
+    }
+}
+@media screen  and (min-width:320px) {
+    .get_image{
+        width: 70%;
+        
+    margin-left: 96px;
+    }
+    .about_image{
+            width: 70%; 
+            height: 100%;
+             object-fit: cover;
+              object-position: center center;
+               opacity: 1;
+               margin-left: 91px;
+        
+    }
+    
+}
